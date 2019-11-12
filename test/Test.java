@@ -5,7 +5,9 @@ public class Test{
         System.err.println(a.hashCode());
         System.out.println(b.hashCode());
         int c = 3;
-        System.out.println(a == b); // false 两个引用没有引用同一对象
+        Integer d = new Integer(3);
+        System.out.println(d == a);
+        System.out.println(a == b); // false 两个引用没有引用同一对象,a是创建了一个新的对象
         System.out.println(a == c); // true a自动拆箱成int类型再和c比较
     }
 

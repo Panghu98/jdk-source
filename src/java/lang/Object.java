@@ -46,6 +46,10 @@ public class Object {
      * {@code Class} object is the object that is locked by {@code
      * static synchronized} methods of the represented class.
      *
+     * 返回运行期的class类
+     *
+     * 常在反射机制中使用大，使用该方法的返回的对象被synchronized修饰的方法锁住的，类锁
+     *
      * <p><b>The actual result type is {@code Class<? extends |X|>}
      * where {@code |X|} is the erasure of the static type of the
      * expression on which {@code getClass} is called.</b> For
@@ -106,6 +110,9 @@ public class Object {
      * on non-null object references:
      * <ul>
      * <li>It is <i>reflexive</i>: for any non-null reference value
+     *
+     *
+     *
      *     {@code x}, {@code x.equals(x)} should return
      *     {@code true}.
      * <li>It is <i>symmetric</i>: for any non-null reference values
@@ -117,6 +124,9 @@ public class Object {
      *     {@code x.equals(y)} returns {@code true} and
      *     {@code y.equals(z)} returns {@code true}, then
      *     {@code x.equals(z)} should return {@code true}.
+     *
+     *     传递性
+     *
      * <li>It is <i>consistent</i>: for any non-null reference values
      *     {@code x} and {@code y}, multiple invocations of
      *     {@code x.equals(y)} consistently return {@code true}
@@ -134,6 +144,9 @@ public class Object {
      * if {@code x} and {@code y} refer to the same object
      * ({@code x == y} has the value {@code true}).
      * <p>
+     *
+     *   重写hashCode方法对于equals方法是十分有必要的
+     *
      * Note that it is generally necessary to override the {@code hashCode}
      * method whenever this method is overridden, so as to maintain the
      * general contract for the {@code hashCode} method, which states
@@ -150,7 +163,7 @@ public class Object {
     }
 
     /**
-     * Creates and returns a copy of this object.  The precise meaning
+     * Creates and returns a copy of this object.  The precise（精确的） meaning
      * of "copy" may depend on the class of the object. The general
      * intent is that, for any object {@code x}, the expression:
      * <blockquote>
@@ -167,6 +180,8 @@ public class Object {
      * x.clone().equals(x)</pre></blockquote>
      * will be {@code true}, this is not an absolute requirement.
      * <p>
+     *
+     *
      * By convention, the returned object should be obtained by calling
      * {@code super.clone}.  If a class and all of its superclasses (except
      * {@code Object}) obey this convention, it will be the case that
@@ -176,25 +191,42 @@ public class Object {
      * of this object (which is being cloned).  To achieve this independence,
      * it may be necessary to modify one or more fields of the object returned
      * by {@code super.clone} before returning it.  Typically, this means
-     * copying any mutable objects that comprise the internal "deep structure"
+     * copying any mutable（可变的） objects that comprise（构成） the internal "deep structure"
      * of the object being cloned and replacing the references to these
      * objects with references to the copies.  If a class contains only
-     * primitive fields or references to immutable objects, then it is usually
+     * primitive（原始的） fields or references to immutable objects, then it is usually
      * the case that no fields in the object returned by {@code super.clone}
      * need to be modified.
      * <p>
      * The method {@code clone} for class {@code Object} performs a
      * specific cloning operation. First, if the class of this object does
-     * not implement the interface {@code Cloneable}, then a
+     * not implement the interface {@code Cloneable}, then a （标识性接口）
+     *
      * {@code CloneNotSupportedException} is thrown. Note that all arrays
      * are considered to implement the interface {@code Cloneable} and that
      * the return type of the {@code clone} method of an array type {@code T[]}
      * is {@code T[]} where T is any reference or primitive type.
-     * Otherwise, this method creates a new instance of the class of this
-     * object and initializes all its fields with exactly the contents of
-     * the corresponding fields of this object, as if by assignment; the
+     *
+     * Array类对象调用clone方法返回的依旧是一个数组
+     *
+     * Otherwise, this method creates a new instance of the class
+     *  （上面说到,应用是不一样的，而调用equals返回的结果是true，刚好应证了这一点）
+     *  <blockquote>
+     *  <pre>
+     *  x.clone() != x</pre></blockquote>
+     *  will be true, and that the expression:
+     *  <blockquote>
+     *
+     *  of this object and initializes all its fields with exactly the contents of
+     * the corresponding（相应的） fields of this object, as if by assignment（内存分配）; the
      * contents of the fields are not themselves cloned. Thus, this method
      * performs a "shallow copy" of this object, not a "deep copy" operation.
+     *
+     *  浅克隆和深克隆
+     *  浅克隆：创建一个新对象，新对象的属性和原来对象完全相同，对于非基本类型属性，仍指向原由属性所指向的对象的内存地址
+     *  深克隆：创建一个对象，属性中引用的其他对象也会被克隆，不再指向原有对象地址
+     *
+     *
      * <p>
      * The class {@code Object} does not itself implement the interface
      * {@code Cloneable}, so calling the {@code clone} method on an object
@@ -214,15 +246,15 @@ public class Object {
     /**
      * Returns a string representation of the object. In general, the
      * {@code toString} method returns a string that
-     * "textually represents" this object. The result should
-     * be a concise but informative representation that is easy for a
+     * "textually（从文字上） represents" this object. The result should
+     * be a concise（简洁） but informative representation that is easy for a
      * person to read.
      * It is recommended that all subclasses override this method.
      * <p>
      * The {@code toString} method for class {@code Object}
      * returns a string consisting of the name of the class of which the
      * object is an instance, the at-sign character `{@code @}', and
-     * the unsigned hexadecimal representation of the hash code of the
+     * the unsigned hexadecimal(16进制) representation of the hash code of the
      * object. In other words, this method returns a string equal to the
      * value of:
      * <blockquote>
@@ -239,26 +271,31 @@ public class Object {
     /**
      * Wakes up a single thread that is waiting on this object's
      * monitor. If any threads are waiting on this object, one of them
-     * is chosen to be awakened. The choice is arbitrary and occurs at
+     * is chosen to be awakened（唤醒的线程是随机的）. The choice is arbitrary（任意的） and occurs at
      * the discretion of the implementation. A thread waits on an object's
      * monitor by calling one of the {@code wait} methods.
      * <p>
+     *     被唤醒的锁不会马上执行直至在该对象的当前线程释放锁
      * The awakened thread will not be able to proceed until the current
      * thread relinquishes the lock on this object. The awakened thread will
      * compete in the usual manner with any other threads that might be
      * actively competing to synchronize on this object; for example, the
-     * awakened thread enjoys no reliable privilege or disadvantage in being
-     * the next thread to lock this object.
+     * awakened thread enjoys no reliable（可靠的） privilege or disadvantage in being
+     * the next thread to lock this object.（被唤醒的线程不一定能够竞争到锁）
      * <p>
      * This method should only be called by a thread that is the owner
-     * of this object's monitor. A thread becomes the owner of the
+     * of this object's monitor（该方法的执行者只能是拥有该对象monitor的对象）.
+     * A thread becomes the owner of the
      * object's monitor in one of three ways:
      * <ul>
      * <li>By executing a synchronized instance method of that object.
+     * （被synchronized关键字修饰的实体类方法）
      * <li>By executing the body of a {@code synchronized} statement
      *     that synchronizes on the object.
+     *     （synchronized修饰的代码块）
      * <li>For objects of type {@code Class,} by executing a
      *     synchronized static method of that class.
+     *     （synchronized修饰的类静态代码块）
      * </ul>
      * <p>
      * Only one thread at a time can own an object's monitor.
@@ -298,28 +335,33 @@ public class Object {
      * Causes the current thread to wait until either another thread invokes the
      * {@link java.lang.Object#notify()} method or the
      * {@link java.lang.Object#notifyAll()} method for this object, or a
-     * specified amount of time has elapsed.
+     * specified amount of time has elapsed（过去--即等待多长的时间）.
      * <p>
      * The current thread must own this object's monitor.
      * <p>
      * This method causes the current thread (call it <var>T</var>) to
-     * place itself in the wait set for this object and then to relinquish
+     * place itself in the wait set for this object and then to relinquish（放弃）
      * any and all synchronization claims on this object. Thread <var>T</var>
-     * becomes disabled for thread scheduling purposes and lies dormant
+     * becomes disabled for thread scheduling purposes and lies dormant（休眠的）
      * until one of four things happens:
+     *
      * <ul>
+     * 1.被唤醒（notify）
      * <li>Some other thread invokes the {@code notify} method for this
-     * object and thread <var>T</var> happens to be arbitrarily chosen as
+     * object and thread <var>T</var> happens to be arbitrarily（任意的） chosen as
      * the thread to be awakened.
+     * 2.被唤醒（notify）
      * <li>Some other thread invokes the {@code notifyAll} method for this
      * object.
+     * 3.被中断（interrupt）
      * <li>Some other thread {@linkplain Thread#interrupt() interrupts}
      * thread <var>T</var>.
+     * 4.等待（等待超时时间）
      * <li>The specified amount of real time has elapsed, more or less.  If
      * {@code timeout} is zero, however, then real time is not taken into
      * consideration and the thread simply waits until notified.
      * </ul>
-     * The thread <var>T</var> is then removed from the wait set for this
+     * The thread <var>T</var> is then removed from the wait set(移出等待池，进入同步池) for this
      * object and re-enabled for thread scheduling. It then competes in the
      * usual manner with other threads for the right to synchronize on the
      * object; once it has gained control of the object, all its
@@ -332,7 +374,7 @@ public class Object {
      * was invoked.
      * <p>
      * A thread can also wake up without being notified, interrupted, or
-     * timing out, a so-called <i>spurious wakeup</i>.  While this will rarely
+     * timing out, a so-called <i>spurious（伪唤醒） wakeup</i>.  While this will rarely
      * occur in practice, applications must guard against it by testing for
      * the condition that should have caused the thread to be awakened, and
      * continuing to wait if the condition is not satisfied.  In other words,
@@ -353,7 +395,7 @@ public class Object {
      * interrupted} by any thread before or while it is waiting, then an
      * {@code InterruptedException} is thrown.  This exception is not
      * thrown until the lock status of this object has been restored as
-     * described above.
+     * described above.（线程中断不会直接抛出，会等到锁状态更新时才会改变）
      *
      * <p>
      * Note that the {@code wait} method, as it places the current thread
