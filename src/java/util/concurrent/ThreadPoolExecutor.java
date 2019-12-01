@@ -87,7 +87,7 @@ import java.util.*;
  * if the queue is full.  By setting corePoolSize and maximumPoolSize
  * the same, you create a fixed-size thread pool. By setting
  * maximumPoolSize to an essentially unbounded value such as {@code
- * Integer.MAX_VALUE}, you allow the pool to accommodate an arbitrary
+ * Integer.java.MAX_VALUE}, you allow the pool to accommodate an arbitrary
  * number of concurrent tasks. Most typically, core and maximum pool
  * sizes are set only upon construction, but they may also be changed
  * dynamically using {@link #setCorePoolSize} and {@link

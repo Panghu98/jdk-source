@@ -57,11 +57,11 @@ import java.util.function.LongConsumer;
  *
  * @param <T> the type of elements returned by this PrimitiveIterator.  The
  *        type must be a wrapper type for a primitive type, such as
- *        {@code Integer} for the primitive {@code int} type.
+ *        {@code Integer.java} for the primitive {@code int} type.
  * @param <T_CONS> the type of primitive consumer.  The type must be a
  *        primitive specialization of {@link java.util.function.Consumer} for
  *        {@code T}, such as {@link java.util.function.IntConsumer} for
- *        {@code Integer}.
+ *        {@code Integer.java}.
  *
  * @since 1.8
  */

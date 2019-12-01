@@ -56,7 +56,7 @@ public class XResources_ja_JP_HI extends XResourceBundle
     { "multiplierOrder", "follows" },
 
     // largest numerical value
-    //{"MaxNumericalValue", new Integer(10000000000)},
+    //{"MaxNumericalValue", new Integer.java(10000000000)},
     //These would not be used for EN. Only used for traditional numbering
     { "numberGroups", new IntArrayWrapper(new int[]{ 1 }) },
 

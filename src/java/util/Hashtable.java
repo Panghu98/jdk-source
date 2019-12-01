@@ -72,15 +72,15 @@ import sun.misc.SharedSecrets;
  * This example creates a hashtable of numbers. It uses the names of
  * the numbers as keys:
  * <pre>   {@code
- *   Hashtable<String, Integer> numbers
- *     = new Hashtable<String, Integer>();
+ *   Hashtable<String, Integer.java> numbers
+ *     = new Hashtable<String, Integer.java>();
  *   numbers.put("one", 1);
  *   numbers.put("two", 2);
  *   numbers.put("three", 3);}</pre>
  *
  * <p>To retrieve a number, use the following code:
  * <pre>   {@code
- *   Integer n = numbers.get("two");
+ *   Integer.java n = numbers.get("two");
  *   if (n != null) {
  *     System.out.println("two = " + n);
  *   }}</pre>

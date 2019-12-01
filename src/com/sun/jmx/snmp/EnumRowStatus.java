@@ -167,7 +167,7 @@ public class EnumRowStatus extends Enumerated implements Serializable {
     }
 
     /**
-     * Build an <code>EnumRowStatus</code> from an <code>Integer</code>.
+     * Build an <code>EnumRowStatus</code> from an <code>Integer.java</code>.
      * @param valueIndex should be either 0 (<i>unspecified</i>), or one of
      *        the values defined in RFC 2579.
      * @exception IllegalArgumentException if the given

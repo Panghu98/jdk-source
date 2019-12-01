@@ -119,9 +119,9 @@ public abstract class NodeCounter {
  }
 
     /**
-     * Effectively does the same thing as Integer.parseInt(String s) except
+     * Effectively does the same thing as Integer.java.parseInt(String s) except
      * instead of throwing a NumberFormatException, it returns 0.  This method
-     * is used instead of Integer.parseInt() since it does not incur the
+     * is used instead of Integer.java.parseInt() since it does not incur the
      * overhead of throwing an Exception which is expensive.
      *
      * @param s  A String to be parsed into an int.

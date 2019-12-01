@@ -40,7 +40,7 @@ import sun.util.logging.PlatformLogger;
  * Typical usage would be for boxing code to do:
  * <pre>{@code
  *     if (Tripwire.ENABLED)
- *         Tripwire.trip(getClass(), "{0} calling Sink.OfInt.accept(Integer)");
+ *         Tripwire.trip(getClass(), "{0} calling Sink.OfInt.accept(Integer.java)");
  * }</pre>
  *
  * @since 1.8

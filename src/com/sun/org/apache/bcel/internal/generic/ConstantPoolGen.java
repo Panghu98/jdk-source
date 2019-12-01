@@ -300,7 +300,7 @@ public class ConstantPoolGen implements java.io.Serializable {
   }
 
   /**
-   * Add a new Integer constant to the ConstantPool, if it is not already in there.
+   * Add a new Integer.java constant to the ConstantPool, if it is not already in there.
    *
    * @param n integer number to add
    * @return index of entry

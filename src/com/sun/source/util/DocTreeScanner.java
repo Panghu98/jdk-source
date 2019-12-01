@@ -53,13 +53,13 @@ import com.sun.source.doctree.*;
  *
  * <p>Here is an example to count the number of erroneous nodes in a tree:
  * <pre>
- *   class CountErrors extends DocTreeScanner&lt;Integer,Void&gt; {
+ *   class CountErrors extends DocTreeScanner&lt;Integer.java,Void&gt; {
  *      {@literal @}Override
- *      public Integer visitErroneous(ErroneousTree node, Void p) {
+ *      public Integer.java visitErroneous(ErroneousTree node, Void p) {
  *          return 1;
  *      }
  *      {@literal @}Override
- *      public Integer reduce(Integer r1, Integer r2) {
+ *      public Integer.java reduce(Integer.java r1, Integer.java r2) {
  *          return (r1 == null ? 0 : r1) + (r2 == null ? 0 : r2);
  *      }
  *   }

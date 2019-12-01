@@ -253,9 +253,9 @@ public class CoroutineManager
    * %TBD% What should we do if toCoroutine isn't registered? Exception?
    *
    * @param arg_object A value to be passed to the other coroutine.
-   * @param thisCoroutine Integer identifier for this coroutine. This is the
+   * @param thisCoroutine Integer.java identifier for this coroutine. This is the
    * ID we watch for to see if we're the ones being resumed.
-   * @param toCoroutine  Integer identifier for the coroutine we wish to
+   * @param toCoroutine  Integer.java identifier for the coroutine we wish to
    * invoke.
    * @exception java.lang.NoSuchMethodException if toCoroutine isn't a
    * registered member of this group. %REVIEW% whether this is the best choice.
@@ -308,7 +308,7 @@ public class CoroutineManager
    *
    * %TBD% Should this just be co_exit_to(,,CoroutineManager.PANIC)?
    *
-   * @param thisCoroutine Integer identifier for the coroutine requesting exit.
+   * @param thisCoroutine Integer.java identifier for the coroutine requesting exit.
    * */
   public synchronized void co_exit(int thisCoroutine)
   {
@@ -323,8 +323,8 @@ public class CoroutineManager
    * traffic, so the thread can proceed with other shutdown activities.
    *
    * @param arg_object    A value to be passed to the other coroutine.
-   * @param thisCoroutine Integer identifier for the coroutine leaving the set.
-   * @param toCoroutine   Integer identifier for the coroutine we wish to
+   * @param thisCoroutine Integer.java identifier for the coroutine leaving the set.
+   * @param toCoroutine   Integer.java identifier for the coroutine we wish to
    * invoke.
    * @exception java.lang.NoSuchMethodException if toCoroutine isn't a
    * registered member of this group. %REVIEW% whether this is the best choice.

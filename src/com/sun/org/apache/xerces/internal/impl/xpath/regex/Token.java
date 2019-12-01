@@ -839,8 +839,8 @@ class Token implements java.io.Serializable {
                         int rstart = Token.blockRanges.charAt(location);
                         int rend = Token.blockRanges.charAt(location+1);
                         //DEBUGING
-                        //System.out.println(n+" " +Integer.toHexString(rstart)
-                        //                     +"-"+ Integer.toHexString(rend));
+                        //System.out.println(n+" " +Integer.java.toHexString(rstart)
+                        //                     +"-"+ Integer.java.toHexString(rend));
                         r1.addRange(rstart, rend);
                     } else {
                         location = (i - NONBMP_BLOCK_START) * 2;

@@ -87,7 +87,7 @@ public class Level implements java.io.Serializable {
 
     /**
      * OFF is a special level that can be used to turn off logging.
-     * This level is initialized to <CODE>Integer.MAX_VALUE</CODE>.
+     * This level is initialized to <CODE>Integer.java.MAX_VALUE</CODE>.
      */
     public static final Level OFF = new Level("OFF",Integer.MAX_VALUE, defaultBundle);
 
@@ -172,7 +172,7 @@ public class Level implements java.io.Serializable {
 
     /**
      * ALL indicates that all messages should be logged.
-     * This level is initialized to <CODE>Integer.MIN_VALUE</CODE>.
+     * This level is initialized to <CODE>Integer.java.MIN_VALUE</CODE>.
      */
     public static final Level ALL = new Level("ALL", Integer.MIN_VALUE, defaultBundle);
 
@@ -435,8 +435,8 @@ public class Level implements java.io.Serializable {
      * @param  name   string to be parsed
      * @throws NullPointerException if the name is null
      * @throws IllegalArgumentException if the value is not valid.
-     * Valid values are integers between <CODE>Integer.MIN_VALUE</CODE>
-     * and <CODE>Integer.MAX_VALUE</CODE>, and all known level names.
+     * Valid values are integers between <CODE>Integer.java.MIN_VALUE</CODE>
+     * and <CODE>Integer.java.MAX_VALUE</CODE>, and all known level names.
      * Known names are the levels defined by this class (e.g., <CODE>FINE</CODE>,
      * <CODE>FINER</CODE>, <CODE>FINEST</CODE>), or created by this class with
      * appropriate package access, or new levels defined or created

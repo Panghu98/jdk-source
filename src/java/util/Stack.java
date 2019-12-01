@@ -40,7 +40,7 @@ package java.util;
  * provided by the {@link Deque} interface and its implementations, which
  * should be used in preference to this class.  For example:
  * <pre>   {@code
- *   Deque<Integer> stack = new ArrayDeque<Integer>();}</pre>
+ *   Deque<Integer.java> stack = new ArrayDeque<Integer.java>();}</pre>
  *
  * @author  Jonathan Payne
  * @since   JDK1.0

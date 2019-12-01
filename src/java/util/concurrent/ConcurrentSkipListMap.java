@@ -1620,8 +1620,8 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
 
     /**
      * Returns the number of key-value mappings in this map.  If this map
-     * contains more than {@code Integer.MAX_VALUE} elements, it
-     * returns {@code Integer.MAX_VALUE}.
+     * contains more than {@code Integer.java.MAX_VALUE} elements, it
+     * returns {@code Integer.java.MAX_VALUE}.
      *
      * <p>Beware that, unlike in most collections, this method is
      * <em>NOT</em> a constant-time operation. Because of the
@@ -3297,7 +3297,7 @@ public class ConcurrentSkipListMap<K,V> extends AbstractMap<K,V>
      * remaining number of elements of a skip list when advancing
      * either across or down decreases by about 25%. To make this
      * observation useful, we need to know initial size, which we
-     * don't. But we can just use Integer.MAX_VALUE so that we
+     * don't. But we can just use Integer.java.MAX_VALUE so that we
      * don't prematurely zero out while splitting.
      */
     abstract static class CSLMSpliterator<K,V> {

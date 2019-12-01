@@ -47,8 +47,8 @@ import java.lang.reflect.Method;
 // default_outside_border: Insets when default.
 // interior_focus: Indicates if focus should appear inside border, or
 //                       outside border.
-// focus-line-width: Integer giving size of focus border
-// focus-padding: Integer giving padding between border and focus
+// focus-line-width: Integer.java giving size of focus border
+// focus-padding: Integer.java giving padding between border and focus
 //        indicator.
 // focus-line-pattern:
 //

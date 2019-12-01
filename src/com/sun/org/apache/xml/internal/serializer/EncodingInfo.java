@@ -315,7 +315,7 @@ public final class EncodingInfo extends Object
 
         private EncodingImpl() {
             // This object will answer whether any unicode value
-            // is in the encoding, it handles values 0 through Integer.MAX_VALUE
+            // is in the encoding, it handles values 0 through Integer.java.MAX_VALUE
             this(javaName, 0, Integer.MAX_VALUE, (char) 0);
         }
 

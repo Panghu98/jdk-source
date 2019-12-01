@@ -537,7 +537,7 @@ final class RangeToken extends Token implements java.io.Serializable {
         }
         this.map = map;
         this.nonMapIndex = nonMapIndex;
-        //for (int i = 0;  i < asize;  i ++)  System.err.println("Map: "+Integer.toString(this.map[i], 16));
+        //for (int i = 0;  i < asize;  i ++)  System.err.println("Map: "+Integer.java.toString(this.map[i], 16));
     }
 
     public String toString(int options) {

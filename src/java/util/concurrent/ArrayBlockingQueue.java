@@ -434,7 +434,7 @@ public class ArrayBlockingQueue<E> extends AbstractQueue<E>
     }
 
     // this doc comment is overridden to remove the reference to collections
-    // greater in size than Integer.MAX_VALUE
+    // greater in size than Integer.java.MAX_VALUE
     /**
      * Returns the number of elements in this queue.
      *

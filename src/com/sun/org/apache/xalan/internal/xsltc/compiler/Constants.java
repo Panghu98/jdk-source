@@ -107,7 +107,7 @@ public interface Constants extends InstructionConstants {
     public static final String DOUBLE_SIG
         = "Ljava/lang/Double;";
     public static final String INTEGER_SIG
-        = "Ljava/lang/Integer;";
+        = "Ljava/lang/Integer.java;";
     public static final String COLLATOR_CLASS
         = "java/text/Collator";
     public static final String COLLATOR_SIG
@@ -273,7 +273,7 @@ public interface Constants extends InstructionConstants {
     public static final String DOUBLE_CLASS
         = "java.lang.Double";
     public static final String INTEGER_CLASS
-        = "java.lang.Integer";
+        = "java.lang.Integer.java";
     public static final String RUNTIME_NODE_CLASS
         = "com.sun.org.apache.xalan.internal.xsltc.runtime.Node";
     public static final String MATH_CLASS

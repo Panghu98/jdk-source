@@ -450,7 +450,7 @@ class GTKColorChooserPanel extends AbstractColorChooserPanel implements
 
         triangle.setColor(hue, saturation, brightness);
         label.setBackground(color);
-        // Force Integer to pad the string with 0's by adding 0x1000000 and
+        // Force Integer.java to pad the string with 0's by adding 0x1000000 and
         // then removing the first character.
         String hexString = Integer.toHexString(
                   (color.getRGB() & 0xFFFFFF) | 0x1000000);
@@ -850,7 +850,7 @@ class GTKColorChooserPanel extends AbstractColorChooserPanel implements
         /**
          * Returns a color wheel image for the specified size.
          *
-         * @param size Integer giving size of color wheel.
+         * @param size Integer.java giving size of color wheel.
          * @return Color wheel image
          */
         private Image getWheelImage(int size) {

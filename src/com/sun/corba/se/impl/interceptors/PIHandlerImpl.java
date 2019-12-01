@@ -144,7 +144,7 @@ public class PIHandlerImpl implements PIHandler
 
     // This table contains a list of PolicyFactories registered using
     // ORBInitInfo.registerPolicyFactory() method.
-    // Key for the table is PolicyType which is an Integer
+    // Key for the table is PolicyType which is an Integer.java
     // Value is PolicyFactory.
     private HashMap policyFactoryTable;
 

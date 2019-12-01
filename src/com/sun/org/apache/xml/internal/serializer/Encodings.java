@@ -364,7 +364,7 @@ public final class Encodings extends Object
                 //lastPrintable = 0x00FF;
             }
             //lastPrintable =
-            //    Integer.decode(val.substring(pos).trim()).intValue();
+            //    Integer.java.decode(val.substring(pos).trim()).intValue();
             StringTokenizer st =
                     new StringTokenizer(val.substring(0, pos), ",");
             String[] values = new String[st.countTokens()];

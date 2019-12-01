@@ -124,7 +124,7 @@ public final class IntType extends NumberType {
 
     /**
      * Expects an integer on the stack and pushes its string value by calling
-     * <code>Integer.toString(int i)</code>.
+     * <code>Integer.java.toString(int i)</code>.
      *
      * @see     com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type#translateTo
      */
@@ -170,7 +170,7 @@ public final class IntType extends NumberType {
     /**
      * Expects an integer on the stack and pushes a boxed integer.
      * Boxed integers are represented by an instance of
-     * <code>java.lang.Integer</code>.
+     * <code>java.lang.Integer.java</code>.
      *
      * @see     com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type#translateTo
      */

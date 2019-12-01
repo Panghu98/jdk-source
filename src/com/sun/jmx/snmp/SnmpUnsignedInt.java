@@ -55,7 +55,7 @@ public abstract class SnmpUnsignedInt extends SnmpInt {
     }
 
     /**
-     * Constructs a new <CODE>SnmpUnsignedInt</CODE> from the specified <CODE>Integer</CODE> value.
+     * Constructs a new <CODE>SnmpUnsignedInt</CODE> from the specified <CODE>Integer.java</CODE> value.
      * @param v The initialization value.
      * @exception IllegalArgumentException The specified value is negative
      * or larger than {@link #MAX_VALUE SnmpUnsignedInt.MAX_VALUE}.

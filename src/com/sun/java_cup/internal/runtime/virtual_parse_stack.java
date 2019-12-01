@@ -85,7 +85,7 @@ public class virtual_parse_stack {
 
   /*. . . . . . . . . . . . . . . . . . . . . . . . . . . . . .*/
 
-  /** The virtual top portion of the stack.  This stack contains Integer
+  /** The virtual top portion of the stack.  This stack contains Integer.java
    *  objects with state numbers.  This stack shadows the top portion
    *  of the real stack within the area that has been modified (via operations
    *  on the virtual stack).  When this portion of the stack becomes empty we

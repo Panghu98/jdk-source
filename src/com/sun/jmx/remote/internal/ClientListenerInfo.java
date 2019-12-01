@@ -33,7 +33,7 @@ import javax.security.auth.Subject;
 
 
 /**
- * <p>An identified listener.  A listener has an Integer id that is
+ * <p>An identified listener.  A listener has an Integer.java id that is
  * unique per connector server.  It selects notifications based on the
  * ObjectName of the originator and an optional
  * NotificationFilter.</p>

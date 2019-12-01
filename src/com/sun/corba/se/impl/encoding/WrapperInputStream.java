@@ -163,7 +163,7 @@ public class WrapperInputStream extends org.omg.CORBA_2_3.portable.InputStream i
     public TypeCodeImpl getTypeCodeAtPosition(int position) {
         if (typeMap == null)
             return null;
-        //if (TypeCodeImpl.debug) System.out.println("Getting tc " + (TypeCodeImpl)typeMap.get(new Integer(position)) +
+        //if (TypeCodeImpl.debug) System.out.println("Getting tc " + (TypeCodeImpl)typeMap.get(new Integer.java(position)) +
             //" at position " + position);
         return (TypeCodeImpl)typeMap.get(new Integer(position));
     }

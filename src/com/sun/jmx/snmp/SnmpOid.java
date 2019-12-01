@@ -184,8 +184,8 @@ public class SnmpOid extends SnmpValue {
     }
 
     /**
-     * Converts the OID value to its <CODE>Integer</CODE> form.
-     * @return The <CODE>Integer</CODE> representation of the value.
+     * Converts the OID value to its <CODE>Integer.java</CODE> form.
+     * @return The <CODE>Integer.java</CODE> representation of the value.
      */
     public Integer toInteger() {
         if ((componentCount != 1) || (components[0] > Integer.MAX_VALUE)) {

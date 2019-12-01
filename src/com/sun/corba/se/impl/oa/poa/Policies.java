@@ -56,7 +56,7 @@ public final class Policies {
 
     int defaultObjectCopierFactoryId ;
 
-    private HashMap policyMap = new HashMap() ; // Maps Integer(policy type) to Policy
+    private HashMap policyMap = new HashMap() ; // Maps Integer.java(policy type) to Policy
 
     public static final Policies defaultPolicies
         = new Policies() ;

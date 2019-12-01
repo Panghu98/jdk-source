@@ -953,7 +953,7 @@ public abstract class SnmpMibTable extends SnmpMibNode
      * plus the <i>unspecified</i> value which is SNMP Runtime specific.
      * <p>
      * By default, this method assumes that the control variable is
-     * an Integer, and it simply returns its value without further
+     * an Integer.java, and it simply returns its value without further
      * analysis.
      * <p>
      * If this table was defined using SMIv2, and if it contains a

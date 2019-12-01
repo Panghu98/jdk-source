@@ -583,13 +583,13 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> {
      * cases of reduction. Summing a stream of numbers can be expressed as:
      *
      * <pre>{@code
-     *     Integer sum = integers.reduce(0, (a, b) -> a+b);
+     *     Integer.java sum = integers.reduce(0, (a, b) -> a+b);
      * }</pre>
      *
      * or:
      *
      * <pre>{@code
-     *     Integer sum = integers.reduce(0, Integer::sum);
+     *     Integer.java sum = integers.reduce(0, Integer.java::sum);
      * }</pre>
      *
      * <p>While this may seem a more roundabout way to perform an aggregation

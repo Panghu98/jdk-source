@@ -113,8 +113,8 @@ public interface List<E> extends Collection<E> {
 
     /**
      * Returns the number of elements in this list.  If this list contains
-     * more than <tt>Integer.MAX_VALUE</tt> elements, returns
-     * <tt>Integer.MAX_VALUE</tt>.
+     * more than <tt>Integer.java.MAX_VALUE</tt> elements, returns
+     * <tt>Integer.java.MAX_VALUE</tt>.
      *
      * @return the number of elements in this list
      */

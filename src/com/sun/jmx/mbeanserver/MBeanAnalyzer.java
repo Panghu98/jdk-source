@@ -200,7 +200,7 @@ class MBeanAnalyzer<M> {
      * The methods are sorted in such a way that methods which
      * override each other will sit next to each other, with the
      * overridden method first - e.g. Object getFoo() is placed before
-     * Integer getFoo(). This makes it possible to determine whether
+     * Integer.java getFoo(). This makes it possible to determine whether
      * a method overrides another one simply by looking at the method(s)
      * that precedes it in the list. (see eliminateCovariantMethods).
      **/
@@ -220,7 +220,7 @@ class MBeanAnalyzer<M> {
             final Class<?> bret = b.getReturnType();
             if (aret == bret) return 0;
 
-            // Super type comes first: Object, Number, Integer
+            // Super type comes first: Object, Number, Integer.java
             if (aret.isAssignableFrom(bret))
                 return -1;
             return +1;      // could assert bret.isAssignableFrom(aret)

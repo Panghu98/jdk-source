@@ -581,15 +581,15 @@ public interface Spliterator<T> {
      * A Spliterator specialized for primitive values.
      *
      * @param <T> the type of elements returned by this Spliterator.  The
-     * type must be a wrapper type for a primitive type, such as {@code Integer}
+     * type must be a wrapper type for a primitive type, such as {@code Integer.java}
      * for the primitive {@code int} type.
      * @param <T_CONS> the type of primitive consumer.  The type must be a
      * primitive specialization of {@link java.util.function.Consumer} for
      * {@code T}, such as {@link java.util.function.IntConsumer} for
-     * {@code Integer}.
+     * {@code Integer.java}.
      * @param <T_SPLITR> the type of primitive Spliterator.  The type must be
      * a primitive specialization of Spliterator for {@code T}, such as
-     * {@link Spliterator.OfInt} for {@code Integer}.
+     * {@link Spliterator.OfInt} for {@code Integer.java}.
      *
      * @see Spliterator.OfInt
      * @see Spliterator.OfLong

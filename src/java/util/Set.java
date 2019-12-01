@@ -87,8 +87,8 @@ public interface Set<E> extends Collection<E> {
 
     /**
      * Returns the number of elements in this set (its cardinality).  If this
-     * set contains more than <tt>Integer.MAX_VALUE</tt> elements, returns
-     * <tt>Integer.MAX_VALUE</tt>.
+     * set contains more than <tt>Integer.java.MAX_VALUE</tt> elements, returns
+     * <tt>Integer.java.MAX_VALUE</tt>.
      *
      * @return the number of elements in this set (its cardinality)
      */

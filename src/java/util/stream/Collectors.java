@@ -87,7 +87,7 @@ import java.util.function.ToLongFunction;
  *                    .collect(Collectors.groupingBy(Employee::getDepartment));
  *
  *     // Compute sum of salaries by department
- *     Map<Department, Integer> totalByDept
+ *     Map<Department, Integer.java> totalByDept
  *         = employees.stream()
  *                    .collect(Collectors.groupingBy(Employee::getDepartment,
  *                                                   Collectors.summingInt(Employee::getSalary)));

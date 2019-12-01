@@ -48,35 +48,31 @@ import sun.misc.DoubleConsts;
  */
 public final class Double extends Number implements Comparable<Double> {
     /**
-     * A constant holding the positive infinity of type
-     * {@code double}. It is equal to the value returned by
-     * {@code Double.longBitsToDouble(0x7ff0000000000000L)}.
+     * 代表正无穷
      */
     public static final double POSITIVE_INFINITY = 1.0 / 0.0;
 
     /**
-     * A constant holding the negative infinity of type
-     * {@code double}. It is equal to the value returned by
-     * {@code Double.longBitsToDouble(0xfff0000000000000L)}.
+     * 负无穷常量
      */
     public static final double NEGATIVE_INFINITY = -1.0 / 0.0;
 
     /**
-     * A constant holding a Not-a-Number (NaN) value of type
-     * {@code double}. It is equivalent to the value returned by
-     * {@code Double.longBitsToDouble(0x7ff8000000000000L)}.
+     * 非数字
      */
     public static final double NaN = 0.0d / 0.0;
 
     /**
-     * A constant holding the largest positive finite value of type
+     * A constant holding the largest positive finite(有限的) value of type
      * {@code double},
-     * (2-2<sup>-52</sup>)&middot;2<sup>1023</sup>.  It is equal to
-     * the hexadecimal floating-point literal
+     * (2-2<sup>-52</sup>)&middot;2<sup>1023</sup>.
+     * 2-2^52
+     * It is equal to
+     * the hexadecimal（十六进制的） floating-point literal（文字）
      * {@code 0x1.fffffffffffffP+1023} and also equal to
      * {@code Double.longBitsToDouble(0x7fefffffffffffffL)}.
      */
-    public static final double MAX_VALUE = 0x1.fffffffffffffP+1023; // 1.7976931348623157e+308
+    public static final double MAX_VALUE = 0x1.fffffffffffffP+1023; // 1.7976931348623157的308次方
 
     /**
      * A constant holding the smallest positive normal value of type
@@ -239,7 +235,7 @@ public final class Double extends Number implements Comparable<Double> {
      * are zero, in which case a single zero is used. Next, the
      * exponent is represented by {@code "p"} followed
      * by a decimal string of the unbiased exponent as if produced by
-     * a call to {@link Integer#toString(int) Integer.toString} on the
+     * a call to {@link Integer#toString(int) Integer.java.toString} on the
      * exponent value.
      *
      * <li>If <i>m</i> is a {@code double} value with a subnormal
@@ -307,8 +303,8 @@ public final class Double extends Number implements Comparable<Double> {
                 // so that the string representation has a known
                 // length.
                 long signifBits = (Double.doubleToLongBits(d)
-                                   & DoubleConsts.SIGNIF_BIT_MASK) |
-                    0x1000000000000000L;
+                        & DoubleConsts.SIGNIF_BIT_MASK) |
+                        0x1000000000000000L;
 
                 // Subnormal values have a 0 implicit bit; normal
                 // values have a 1 implicit bit.
@@ -320,8 +316,8 @@ public final class Double extends Number implements Comparable<Double> {
                 // trailing zeros.
                 String signif = Long.toHexString(signifBits).substring(3,16);
                 answer.append(signif.equals("0000000000000") ? // 13 zeros
-                              "0":
-                              signif.replaceFirst("0{1,12}$", ""));
+                        "0":
+                        signif.replaceFirst("0{1,12}$", ""));
 
                 answer.append('p');
                 // If the value is subnormal, use the E_min exponent
@@ -329,8 +325,8 @@ public final class Double extends Number implements Comparable<Double> {
                 // exponent (the representation of a subnormal uses
                 // E_min -1).
                 answer.append(subnormal ?
-                              DoubleConsts.MIN_EXPONENT:
-                              Math.getExponent(d));
+                        DoubleConsts.MIN_EXPONENT:
+                        Math.getExponent(d));
             }
             return answer.toString();
         }
@@ -752,6 +748,7 @@ public final class Double extends Number implements Comparable<Double> {
      */
     public static int hashCode(double value) {
         long bits = doubleToLongBits(value);
+        //无符号右移
         return (int)(bits ^ (bits >>> 32));
     }
 
@@ -796,8 +793,8 @@ public final class Double extends Number implements Comparable<Double> {
      */
     public boolean equals(Object obj) {
         return (obj instanceof Double)
-               && (doubleToLongBits(((Double)obj).value) ==
-                      doubleToLongBits(value));
+                && (doubleToLongBits(((Double)obj).value) ==
+                doubleToLongBits(value));
     }
 
     /**
@@ -837,8 +834,8 @@ public final class Double extends Number implements Comparable<Double> {
         // Check for NaN based on values of bit fields, maximum
         // exponent and nonzero significand.
         if ( ((result & DoubleConsts.EXP_BIT_MASK) ==
-              DoubleConsts.EXP_BIT_MASK) &&
-             (result & DoubleConsts.SIGNIF_BIT_MASK) != 0L)
+                DoubleConsts.EXP_BIT_MASK) &&
+                (result & DoubleConsts.SIGNIF_BIT_MASK) != 0L)
             result = 0x7ff8000000000000L;
         return result;
     }
@@ -1008,7 +1005,7 @@ public final class Double extends Number implements Comparable<Double> {
 
         return (thisBits == anotherBits ?  0 : // Values are equal
                 (thisBits < anotherBits ? -1 : // (-0.0, 0.0) or (!NaN, NaN)
-                 1));                          // (0.0, -0.0) or (NaN, !NaN)
+                        1));                          // (0.0, -0.0) or (NaN, !NaN)
     }
 
     /**

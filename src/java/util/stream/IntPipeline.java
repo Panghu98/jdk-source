@@ -92,7 +92,7 @@ abstract class IntPipeline<E_IN>
     }
 
     /**
-     * Adapt a {@code Sink<Integer> to an {@code IntConsumer}, ideally simply
+     * Adapt a {@code Sink<Integer.java> to an {@code IntConsumer}, ideally simply
      * by casting.
      */
     private static IntConsumer adapt(Sink<Integer> sink) {
@@ -102,13 +102,13 @@ abstract class IntPipeline<E_IN>
         else {
             if (Tripwire.ENABLED)
                 Tripwire.trip(AbstractPipeline.class,
-                              "using IntStream.adapt(Sink<Integer> s)");
+                              "using IntStream.adapt(Sink<Integer.java> s)");
             return sink::accept;
         }
     }
 
     /**
-     * Adapt a {@code Spliterator<Integer>} to a {@code Spliterator.OfInt}.
+     * Adapt a {@code Spliterator<Integer.java>} to a {@code Spliterator.OfInt}.
      *
      * @implNote
      * The implementation attempts to cast to a Spliterator.OfInt, and throws an
@@ -121,8 +121,8 @@ abstract class IntPipeline<E_IN>
         else {
             if (Tripwire.ENABLED)
                 Tripwire.trip(AbstractPipeline.class,
-                              "using IntStream.adapt(Spliterator<Integer> s)");
-            throw new UnsupportedOperationException("IntStream.adapt(Spliterator<Integer> s)");
+                              "using IntStream.adapt(Spliterator<Integer.java> s)");
+            throw new UnsupportedOperationException("IntStream.adapt(Spliterator<Integer.java> s)");
         }
     }
 

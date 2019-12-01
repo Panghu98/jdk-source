@@ -125,7 +125,7 @@ public final class ObjectType extends Type {
 
     /**
      * Expects an integer on the stack and pushes its string value by calling
-     * <code>Integer.toString(int i)</code>.
+     * <code>Integer.java.toString(int i)</code>.
      *
      * @see     com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type#translateTo
      */

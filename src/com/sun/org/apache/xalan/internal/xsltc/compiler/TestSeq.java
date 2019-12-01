@@ -50,7 +50,7 @@ import java.util.Vector;
 final class TestSeq {
 
     /**
-     * Integer code for the kernel type of this test sequence
+     * Integer.java code for the kernel type of this test sequence
      */
     private int _kernelType;
 

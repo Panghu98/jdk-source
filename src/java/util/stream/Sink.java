@@ -182,8 +182,8 @@ interface Sink<T> extends Consumer<T> {
     }
 
     /**
-     * {@code Sink} that implements {@code Sink<Integer>}, re-abstracts
-     * {@code accept(int)}, and wires {@code accept(Integer)} to bridge to
+     * {@code Sink} that implements {@code Sink<Integer.java>}, re-abstracts
+     * {@code accept(int)}, and wires {@code accept(Integer.java)} to bridge to
      * {@code accept(int)}.
      */
     interface OfInt extends Sink<Integer>, IntConsumer {
@@ -193,7 +193,7 @@ interface Sink<T> extends Consumer<T> {
         @Override
         default void accept(Integer i) {
             if (Tripwire.ENABLED)
-                Tripwire.trip(getClass(), "{0} calling Sink.OfInt.accept(Integer)");
+                Tripwire.trip(getClass(), "{0} calling Sink.OfInt.accept(Integer.java)");
             accept(i.intValue());
         }
     }

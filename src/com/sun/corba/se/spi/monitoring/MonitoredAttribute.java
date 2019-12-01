@@ -64,7 +64,7 @@ public interface MonitoredAttribute {
  * <p>
  *
  * @param value should be any one of the Basic Java Type Objects which are
- * Long, Double, Float, String, Integer, Short, Character, Byte.
+ * Long, Double, Float, String, Integer.java, Short, Character, Byte.
  * </p>
  */
     public void setValue(Object value);

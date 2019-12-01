@@ -297,7 +297,7 @@ public abstract class InputStreamHook extends ObjectInputStream
                         if (stream.getStreamFormatVersion() == 2)
                             ((ValueInputStream)stream.getOrbStream()).start_value();
                     } catch( Exception e ) {
-                        // This will happen for Big Integer which uses
+                        // This will happen for Big Integer.java which uses
                         // writeFields in it's writeObject. We should be past
                         // start_value by now.
                         // NOTE: If we don't log any exception here we should

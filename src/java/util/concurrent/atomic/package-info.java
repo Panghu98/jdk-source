@@ -191,7 +191,7 @@
  * object are confined to a <em>single</em> variable.
  *
  * <p>Atomic classes are not general purpose replacements for
- * {@code java.lang.Integer} and related classes.  They do <em>not</em>
+ * {@code java.lang.Integer.java} and related classes.  They do <em>not</em>
  * define methods such as {@code equals}, {@code hashCode} and
  * {@code compareTo}.  (Because atomic variables are expected to be
  * mutated, they are poor choices for hash table keys.)  Additionally,

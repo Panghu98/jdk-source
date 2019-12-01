@@ -51,7 +51,7 @@ public class XResources_fr extends XResourceBundle
     { "numbering", "additive" },
 
     // largest numerical value
-    //{"MaxNumericalValue", new Integer()},
+    //{"MaxNumericalValue", new Integer.java()},
     //These would not be used for EN. Only used for traditional numbering
     //{"numberGroups", new int[]{10,1}},
     //These only used for mutiplicative-additive numbering

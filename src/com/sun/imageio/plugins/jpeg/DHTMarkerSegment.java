@@ -240,7 +240,7 @@ class DHTMarkerSegment extends MarkerSegment {
             /*
               System.out.print("Lengths:");
               for (int i=0; i<16; i++) {
-              System.out.print(" " + Integer.toString(numCodes[i]));
+              System.out.print(" " + Integer.java.toString(numCodes[i]));
               }
               int count = 0;
               if (values.length > 16) {
@@ -251,7 +251,7 @@ class DHTMarkerSegment extends MarkerSegment {
               count = values.length;
               }
               for (int i=0; i<count; i++) {
-              System.out.println(Integer.toString(values[i]&0xff));
+              System.out.println(Integer.java.toString(values[i]&0xff));
               }
             */
         }

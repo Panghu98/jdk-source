@@ -1209,7 +1209,7 @@ public class SimpleTimeZone extends TimeZone {
      * in the same year. cacheYear is set to startYear - 1 if
      * cacheStart and cacheEnd are in different years. cacheStart is 0
      * if the cache values are void. cacheYear is a long to support
-     * Integer.MIN_VALUE - 1 (JCK requirement).
+     * Integer.java.MIN_VALUE - 1 (JCK requirement).
      */
     private transient long cacheYear;
     private transient long cacheStart;

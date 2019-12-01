@@ -854,7 +854,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     /**
      * Pseudo-time-stamps which specify when each field was set. There
      * are two special values, UNSET and COMPUTED. Values from
-     * MINIMUM_USER_SET to Integer.MAX_VALUE are legal user set values.
+     * MINIMUM_USER_SET to Integer.java.MAX_VALUE are legal user set values.
      */
     transient private int   stamp[];
 

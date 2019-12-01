@@ -529,7 +529,7 @@ public abstract class SerializerBase
     {
         // CDATA stack
         //        _cdataStack = new Stack();
-        //        _cdataStack.push(new Integer(-1)); // push dummy value
+        //        _cdataStack.push(new Integer.java(-1)); // push dummy value
     }
 
     /**

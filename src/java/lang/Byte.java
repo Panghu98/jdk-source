@@ -69,6 +69,10 @@ public final class Byte extends Number implements Comparable<Byte> {
      * @param b the {@code byte} to be converted
      * @return the string representation of the specified {@code byte}
      * @see java.lang.Integer#toString(int)
+     *
+     * ByteCache是Byte的一个内部类，它其实就是一个包含了byte所有可能值的Byte数组，
+     * 对于byte来说其实它的可能值就是从-128到127，一共256个，
+     * 所以我们只需要实例化256个Byte对象就可以表示所有可能的byte。而且这些都是静态且final的，避免重复的实例化和回收。
      */
     public static String toString(byte b) {
         return Integer.toString((int)b, 10);
@@ -104,52 +108,22 @@ public final class Byte extends Number implements Comparable<Byte> {
     }
 
     /**
-     * Parses the string argument as a signed {@code byte} in the
-     * radix specified by the second argument. The characters in the
-     * string must all be digits, of the specified radix (as
-     * determined by whether {@link java.lang.Character#digit(char,
-     * int)} returns a nonnegative value) except that the first
-     * character may be an ASCII minus sign {@code '-'}
-     * ({@code '\u005Cu002D'}) to indicate a negative value or an
-     * ASCII plus sign {@code '+'} ({@code '\u005Cu002B'}) to
-     * indicate a positive value.  The resulting {@code byte} value is
-     * returned.
-     *
-     * <p>An exception of type {@code NumberFormatException} is
-     * thrown if any of the following situations occurs:
-     * <ul>
-     * <li> The first argument is {@code null} or is a string of
-     * length zero.
-     *
-     * <li> The radix is either smaller than {@link
-     * java.lang.Character#MIN_RADIX} or larger than {@link
-     * java.lang.Character#MAX_RADIX}.
-     *
-     * <li> Any character of the string is not a digit of the
-     * specified radix, except that the first character may be a minus
-     * sign {@code '-'} ({@code '\u005Cu002D'}) or plus sign
-     * {@code '+'} ({@code '\u005Cu002B'}) provided that the
-     * string is longer than length 1.
-     *
-     * <li> The value represented by the string is not a value of type
-     * {@code byte}.
-     * </ul>
-     *
-     * @param s         the {@code String} containing the
-     *                  {@code byte}
-     *                  representation to be parsed
-     * @param radix     the radix to be used while parsing {@code s}
-     * @return          the {@code byte} value represented by the string
-     *                   argument in the specified radix
-     * @throws          NumberFormatException If the string does
-     *                  not contain a parsable {@code byte}.
+     *  第一个参数是待转换的字符串，第二个参数表示进制数，这里的转换其实是调了Integer的parseInt方法，
+     *  返回值再判断是不是在byte的最小值和最大值之间。怎么更好理解这个参数呢？
+     *  举个例子，Byte.parseByte("100",10)表示十进制的100，所以值为100，
+     *  而Byte.parseByte("100",2)表示二进制的100，所以值为4。另外如果
+     *  Byte.parseByte("1000",10)会抛出java.lang.NumberFormatException异常。
+     * @param s 传入的值
+     * @param radix  基数
+     * @return
+     * @throws NumberFormatException
      */
     public static byte parseByte(String s, int radix)
-        throws NumberFormatException {
+            throws NumberFormatException {
         int i = Integer.parseInt(s, radix);
         if (i < MIN_VALUE || i > MAX_VALUE)
             throw new NumberFormatException(
-                "Value out of range. Value:\"" + s + "\" Radix:" + radix);
+                    "Value out of range. Value:\"" + s + "\" Radix:" + radix);
         return (byte)i;
     }
 
@@ -201,7 +175,7 @@ public final class Byte extends Number implements Comparable<Byte> {
      *                  not contain a parsable {@code byte}.
      */
     public static Byte valueOf(String s, int radix)
-        throws NumberFormatException {
+            throws NumberFormatException {
         return valueOf(parseByte(s, radix));
     }
 

@@ -80,8 +80,8 @@ public interface Type {
      * <p>
      * For example, a two dimensional array of String may return
      * "<code>java.lang.String[][]</code>",
-     * and the parameterized type {@code List<Integer>} may return
-     * "{@code java.util.List<java.lang.Integer>}".
+     * and the parameterized type {@code List<Integer.java>} may return
+     * "{@code java.util.List<java.lang.Integer.java>}".
      *
      * @return a string representation of the type.
      */

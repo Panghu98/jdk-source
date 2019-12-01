@@ -53,7 +53,7 @@ public class XResources_zh_CN extends XResourceBundle
     { "multiplierOrder", "follows" },
 
     // largest numerical value
-    //{"MaxNumericalValue", new Integer(100000000)},
+    //{"MaxNumericalValue", new Integer.java(100000000)},
     //These would not be used for EN. Only used for traditional numbering
     { "numberGroups", new IntArrayWrapper(new int[]{ 1 }) },
 

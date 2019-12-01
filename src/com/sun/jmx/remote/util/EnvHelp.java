@@ -334,7 +334,7 @@ public class EnvHelp {
      * <p>Name of the attribute that specifies the maximum number of
      * notifications that a client will fetch from its server.. The
      * value associated with this attribute should be an
-     * <code>Integer</code> object.  The default value is 1000.</p>
+     * <code>Integer.java</code> object.  The default value is 1000.</p>
      */
     public static final String MAX_FETCH_NOTIFS =
         "jmx.remote.x.notification.fetch.max";
@@ -412,7 +412,7 @@ public class EnvHelp {
                IllegalArgumentException.  */
         } else {
             final String msg =
-                "Attribute " + name + " value must be Integer or String: " + o;
+                "Attribute " + name + " value must be Integer.java or String: " + o;
             throw new IllegalArgumentException(msg);
         }
 

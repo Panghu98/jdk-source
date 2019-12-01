@@ -172,7 +172,7 @@ import java.util.function.Supplier;
  * the sum of the salaries of a stream of employees:
  *
  * <pre>{@code
- *     Collector<Employee, ?, Integer> summingSalaries
+ *     Collector<Employee, ?, Integer.java> summingSalaries
  *         = Collectors.summingInt(Employee::getSalary))
  * }</pre>
  *
@@ -181,7 +181,7 @@ import java.util.function.Supplier;
  * {@link Collectors#groupingBy(Function, Collector)}:
  *
  * <pre>{@code
- *     Collector<Employee, ?, Map<Department, Integer>> summingSalariesByDept
+ *     Collector<Employee, ?, Map<Department, Integer.java>> summingSalariesByDept
  *         = Collectors.groupingBy(Employee::getDepartment, summingSalaries);
  * }</pre>
  *

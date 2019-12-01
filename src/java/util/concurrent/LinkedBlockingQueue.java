@@ -133,7 +133,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
         Node(E x) { item = x; }
     }
 
-    /** The capacity bound, or Integer.MAX_VALUE if none */
+    /** The capacity bound, or Integer.java.MAX_VALUE if none */
     private final int capacity;
 
     /** Current number of elements */
@@ -294,7 +294,7 @@ public class LinkedBlockingQueue<E> extends AbstractQueue<E>
     }
 
     // this doc comment is overridden to remove the reference to collections
-    // greater in size than Integer.MAX_VALUE
+    // greater in size than Integer.java.MAX_VALUE
     /**
      * Returns the number of elements in this queue.
      *

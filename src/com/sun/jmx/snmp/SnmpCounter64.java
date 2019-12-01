@@ -96,8 +96,8 @@ public class SnmpCounter64 extends SnmpValue {
     }
 
     /**
-     * Converts the counter value to its <CODE>Integer</CODE> form.
-     * @return The <CODE>Integer</CODE> representation of the value.
+     * Converts the counter value to its <CODE>Integer.java</CODE> form.
+     * @return The <CODE>Integer.java</CODE> representation of the value.
      */
     public Integer toInteger() {
         return new Integer((int)value) ;

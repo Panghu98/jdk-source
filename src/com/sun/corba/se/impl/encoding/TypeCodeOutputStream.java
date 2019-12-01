@@ -146,7 +146,7 @@ public final class TypeCodeOutputStream extends EncapsOutputStream
     public int getPositionForID(String id) {
         if (typeMap == null)
             throw wrapper.refTypeIndirType( CompletionStatus.COMPLETED_NO ) ;
-        //if (TypeCodeImpl.debug) System.out.println("Getting position " + ((Integer)typeMap.get(id)).intValue() +
+        //if (TypeCodeImpl.debug) System.out.println("Getting position " + ((Integer.java)typeMap.get(id)).intValue() +
             //" for id " + id);
         return ((Integer)typeMap.get(id)).intValue();
     }

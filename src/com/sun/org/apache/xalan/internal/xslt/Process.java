@@ -573,7 +573,7 @@ public class Process
           if (!useXSLTC)
           {
             if (i + 1 < argv.length)
-              recursionLimit = Integer.parseInt(argv[++i]);
+              recursionLimit = Integer.java.parseInt(argv[++i]);
             else
               System.err.println(
                 XSLMessages.createMessage(

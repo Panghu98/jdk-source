@@ -241,7 +241,7 @@ import sun.misc.LRUCache;
  *       <dd><tt>( ( </tt><i>Digit</i><tt>+ )
  *               | </tt><i>GroupedNumeral</i><tt> )</tt>
  *
- *   <dt><a name="Integer-regex"><i>Integer</i>:</a>
+ *   <dt><a name="Integer.java-regex"><i>Integer.java</i>:</a>
  *       <dd><tt>( [-+]? ( </tt><i>Numeral</i><tt>
  *                               ) )</tt>
  *       <dd><tt>| </tt><i>LocalPositivePrefix</i> <i>Numeral</i>
@@ -1280,7 +1280,7 @@ public final class Scanner implements Iterator<String>, Closeable {
      * exception. For instance, after an invocation of the {@link #nextInt}
      * method that returned an int, this method returns a
      * <code>MatchResult</code> for the search of the
-     * <a href="#Integer-regex"><i>Integer</i></a> regular expression
+     * <a href="#Integer.java-regex"><i>Integer.java</i></a> regular expression
      * defined above. Similarly the {@link #findInLine},
      * {@link #findWithinHorizon}, and {@link #skip} methods will make a
      * match available if they succeed.
@@ -1831,7 +1831,7 @@ public final class Scanner implements Iterator<String>, Closeable {
      *
      * @return the <tt>byte</tt> scanned from the input
      * @throws InputMismatchException
-     *         if the next token does not match the <i>Integer</i>
+     *         if the next token does not match the <i>Integer.java</i>
      *         regular expression, or is out of range
      * @throws NoSuchElementException if input is exhausted
      * @throws IllegalStateException if this scanner is closed
@@ -1848,7 +1848,7 @@ public final class Scanner implements Iterator<String>, Closeable {
      * past the input that matched.
      *
      * <p> If the next token matches the <a
-     * href="#Integer-regex"><i>Integer</i></a> regular expression defined
+     * href="#Integer.java-regex"><i>Integer.java</i></a> regular expression defined
      * above then the token is converted into a <tt>byte</tt> value as if by
      * removing all locale specific prefixes, group separators, and locale
      * specific suffixes, then mapping non-ASCII digits into ASCII
@@ -1861,7 +1861,7 @@ public final class Scanner implements Iterator<String>, Closeable {
      * @param radix the radix used to interpret the token as a byte value
      * @return the <tt>byte</tt> scanned from the input
      * @throws InputMismatchException
-     *         if the next token does not match the <i>Integer</i>
+     *         if the next token does not match the <i>Integer.java</i>
      *         regular expression, or is out of range
      * @throws NoSuchElementException if input is exhausted
      * @throws IllegalStateException if this scanner is closed
@@ -1937,7 +1937,7 @@ public final class Scanner implements Iterator<String>, Closeable {
      *
      * @return the <tt>short</tt> scanned from the input
      * @throws InputMismatchException
-     *         if the next token does not match the <i>Integer</i>
+     *         if the next token does not match the <i>Integer.java</i>
      *         regular expression, or is out of range
      * @throws NoSuchElementException if input is exhausted
      * @throws IllegalStateException if this scanner is closed
@@ -1954,7 +1954,7 @@ public final class Scanner implements Iterator<String>, Closeable {
      * past the input that matched.
      *
      * <p> If the next token matches the <a
-     * href="#Integer-regex"><i>Integer</i></a> regular expression defined
+     * href="#Integer.java-regex"><i>Integer.java</i></a> regular expression defined
      * above then the token is converted into a <tt>short</tt> value as if by
      * removing all locale specific prefixes, group separators, and locale
      * specific suffixes, then mapping non-ASCII digits into ASCII
@@ -1967,7 +1967,7 @@ public final class Scanner implements Iterator<String>, Closeable {
      * @param radix the radix used to interpret the token as a short value
      * @return the <tt>short</tt> scanned from the input
      * @throws InputMismatchException
-     *         if the next token does not match the <i>Integer</i>
+     *         if the next token does not match the <i>Integer.java</i>
      *         regular expression, or is out of range
      * @throws NoSuchElementException if input is exhausted
      * @throws IllegalStateException if this scanner is closed
@@ -2067,7 +2067,7 @@ public final class Scanner implements Iterator<String>, Closeable {
      *
      * @return the <tt>int</tt> scanned from the input
      * @throws InputMismatchException
-     *         if the next token does not match the <i>Integer</i>
+     *         if the next token does not match the <i>Integer.java</i>
      *         regular expression, or is out of range
      * @throws NoSuchElementException if input is exhausted
      * @throws IllegalStateException if this scanner is closed
@@ -2084,20 +2084,20 @@ public final class Scanner implements Iterator<String>, Closeable {
      * past the input that matched.
      *
      * <p> If the next token matches the <a
-     * href="#Integer-regex"><i>Integer</i></a> regular expression defined
+     * href="#Integer.java-regex"><i>Integer.java</i></a> regular expression defined
      * above then the token is converted into an <tt>int</tt> value as if by
      * removing all locale specific prefixes, group separators, and locale
      * specific suffixes, then mapping non-ASCII digits into ASCII
      * digits via {@link Character#digit Character.digit}, prepending a
      * negative sign (-) if the locale specific negative prefixes and suffixes
      * were present, and passing the resulting string to
-     * {@link Integer#parseInt(String, int) Integer.parseInt} with the
+     * {@link Integer#parseInt(String, int) Integer.java.parseInt} with the
      * specified radix.
      *
      * @param radix the radix used to interpret the token as an int value
      * @return the <tt>int</tt> scanned from the input
      * @throws InputMismatchException
-     *         if the next token does not match the <i>Integer</i>
+     *         if the next token does not match the <i>Integer.java</i>
      *         regular expression, or is out of range
      * @throws NoSuchElementException if input is exhausted
      * @throws IllegalStateException if this scanner is closed
@@ -2173,7 +2173,7 @@ public final class Scanner implements Iterator<String>, Closeable {
      *
      * @return the <tt>long</tt> scanned from the input
      * @throws InputMismatchException
-     *         if the next token does not match the <i>Integer</i>
+     *         if the next token does not match the <i>Integer.java</i>
      *         regular expression, or is out of range
      * @throws NoSuchElementException if input is exhausted
      * @throws IllegalStateException if this scanner is closed
@@ -2190,7 +2190,7 @@ public final class Scanner implements Iterator<String>, Closeable {
      * past the input that matched.
      *
      * <p> If the next token matches the <a
-     * href="#Integer-regex"><i>Integer</i></a> regular expression defined
+     * href="#Integer.java-regex"><i>Integer.java</i></a> regular expression defined
      * above then the token is converted into a <tt>long</tt> value as if by
      * removing all locale specific prefixes, group separators, and locale
      * specific suffixes, then mapping non-ASCII digits into ASCII
@@ -2203,7 +2203,7 @@ public final class Scanner implements Iterator<String>, Closeable {
      * @param radix the radix used to interpret the token as an int value
      * @return the <tt>long</tt> scanned from the input
      * @throws InputMismatchException
-     *         if the next token does not match the <i>Integer</i>
+     *         if the next token does not match the <i>Integer.java</i>
      *         regular expression, or is out of range
      * @throws NoSuchElementException if input is exhausted
      * @throws IllegalStateException if this scanner is closed
@@ -2471,7 +2471,7 @@ public final class Scanner implements Iterator<String>, Closeable {
      *
      * @return the <tt>BigInteger</tt> scanned from the input
      * @throws InputMismatchException
-     *         if the next token does not match the <i>Integer</i>
+     *         if the next token does not match the <i>Integer.java</i>
      *         regular expression, or is out of range
      * @throws NoSuchElementException if the input is exhausted
      * @throws IllegalStateException if this scanner is closed
@@ -2485,7 +2485,7 @@ public final class Scanner implements Iterator<String>, Closeable {
      * BigInteger}.
      *
      * <p> If the next token matches the <a
-     * href="#Integer-regex"><i>Integer</i></a> regular expression defined
+     * href="#Integer.java-regex"><i>Integer.java</i></a> regular expression defined
      * above then the token is converted into a <tt>BigInteger</tt> value as if
      * by removing all group separators, mapping non-ASCII digits into ASCII
      * digits via the {@link Character#digit Character.digit}, and passing the
@@ -2496,7 +2496,7 @@ public final class Scanner implements Iterator<String>, Closeable {
      * @param radix the radix used to interpret the token
      * @return the <tt>BigInteger</tt> scanned from the input
      * @throws InputMismatchException
-     *         if the next token does not match the <i>Integer</i>
+     *         if the next token does not match the <i>Integer.java</i>
      *         regular expression, or is out of range
      * @throws NoSuchElementException if the input is exhausted
      * @throws IllegalStateException if this scanner is closed

@@ -45,8 +45,8 @@ public class SnmpInt extends SnmpValue {
     /**
      * Constructs a new <CODE>SnmpInt</CODE> from the specified integer value.
      * @param v The initialization value.
-     * @exception IllegalArgumentException The specified value is smaller than <CODE>Integer.MIN_VALUE</CODE>
-     * or larger than <CODE>Integer.MAX_VALUE</CODE>.
+     * @exception IllegalArgumentException The specified value is smaller than <CODE>Integer.java.MIN_VALUE</CODE>
+     * or larger than <CODE>Integer.java.MAX_VALUE</CODE>.
      */
     public SnmpInt(int v) throws IllegalArgumentException {
         if ( isInitValueValid(v) == false ) {
@@ -56,10 +56,10 @@ public class SnmpInt extends SnmpValue {
     }
 
     /**
-     * Constructs a new <CODE>SnmpInt</CODE> from the specified <CODE>Integer</CODE> value.
+     * Constructs a new <CODE>SnmpInt</CODE> from the specified <CODE>Integer.java</CODE> value.
      * @param v The initialization value.
-     * @exception IllegalArgumentException The specified value is smaller than <CODE>Integer.MIN_VALUE</CODE>
-     * or larger than <CODE>Integer.MAX_VALUE</CODE>.
+     * @exception IllegalArgumentException The specified value is smaller than <CODE>Integer.java.MIN_VALUE</CODE>
+     * or larger than <CODE>Integer.java.MAX_VALUE</CODE>.
      */
     public SnmpInt(Integer v) throws IllegalArgumentException {
         this(v.intValue()) ;
@@ -68,8 +68,8 @@ public class SnmpInt extends SnmpValue {
     /**
      * Constructs a new <CODE>SnmpInt</CODE> from the specified long value.
      * @param v The initialization value.
-     * @exception IllegalArgumentException The specified value is smaller than <CODE>Integer.MIN_VALUE</CODE>
-     * or larger than <CODE>Integer.MAX_VALUE</CODE>.
+     * @exception IllegalArgumentException The specified value is smaller than <CODE>Integer.java.MIN_VALUE</CODE>
+     * or larger than <CODE>Integer.java.MAX_VALUE</CODE>.
      */
     public SnmpInt(long v) throws IllegalArgumentException {
         if ( isInitValueValid(v) == false ) {
@@ -81,8 +81,8 @@ public class SnmpInt extends SnmpValue {
     /**
      * Constructs a new <CODE>SnmpInt</CODE> from the specified <CODE>Long</CODE> value.
      * @param v The initialization value.
-     * @exception IllegalArgumentException The specified value is smaller than <CODE>Integer.MIN_VALUE</CODE>
-     * or larger than <CODE>Integer.MAX_VALUE</CODE>.
+     * @exception IllegalArgumentException The specified value is smaller than <CODE>Integer.java.MIN_VALUE</CODE>
+     * or larger than <CODE>Integer.java.MAX_VALUE</CODE>.
      */
     public SnmpInt(Long v) throws IllegalArgumentException {
         this(v.longValue()) ;
@@ -91,8 +91,8 @@ public class SnmpInt extends SnmpValue {
     /**
      * Constructs a new <CODE>SnmpInt</CODE> from the specified <CODE>Enumerated</CODE> value.
      * @param v The initialization value.
-     * @exception IllegalArgumentException The specified value is smaller than <CODE>Integer.MIN_VALUE</CODE>
-     * or larger than <CODE>Integer.MAX_VALUE</CODE>.
+     * @exception IllegalArgumentException The specified value is smaller than <CODE>Integer.java.MIN_VALUE</CODE>
+     * or larger than <CODE>Integer.java.MAX_VALUE</CODE>.
      * @see Enumerated
      */
     public SnmpInt(Enumerated v) throws IllegalArgumentException {
@@ -142,8 +142,8 @@ public class SnmpInt extends SnmpValue {
     }
 
     /**
-     * Converts the integer value to its <CODE>Integer</CODE> form.
-     * @return The <CODE>Integer</CODE> representation of the value.
+     * Converts the integer value to its <CODE>Integer.java</CODE> form.
+     * @return The <CODE>Integer.java</CODE> representation of the value.
      */
     public Integer toInteger() {
         return new Integer((int)value) ;

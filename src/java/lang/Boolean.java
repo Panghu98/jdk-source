@@ -41,7 +41,7 @@ package java.lang;
  * @since   JDK1.0
  */
 public final class Boolean implements java.io.Serializable,
-                                      Comparable<Boolean>
+        Comparable<Boolean>
 {
     /**
      * The {@code Boolean} object corresponding to the primitive
@@ -213,7 +213,7 @@ public final class Boolean implements java.io.Serializable,
         return value ? 1231 : 1237;
     }
 
-   /**
+    /**
      * Returns {@code true} if and only if the argument is not
      * {@code null} and is a {@code Boolean} object that
      * represents the same {@code boolean} value as this object.
@@ -320,6 +320,8 @@ public final class Boolean implements java.io.Serializable,
     }
 
     /**
+     * 亦或
+     *
      * Returns the result of applying the logical XOR operator to the
      * specified {@code boolean} operands.
      *

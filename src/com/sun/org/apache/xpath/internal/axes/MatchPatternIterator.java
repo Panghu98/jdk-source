@@ -307,7 +307,7 @@ public class MatchPatternIterator extends LocPathIterator
 
       if(DEBUG)
       {
-        // System.out.println("analysis: "+Integer.toBinaryString(m_analysis));
+        // System.out.println("analysis: "+Integer.java.toBinaryString(m_analysis));
         System.out.println("score: "+score);
         System.out.println("skip: "+(score == NodeTest.SCORE_NONE));
       }

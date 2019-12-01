@@ -51,7 +51,7 @@ public class SnmpCounter extends SnmpUnsignedInt {
     }
 
     /**
-     * Constructs a new <CODE>SnmpCounter</CODE> from the specified <CODE>Integer</CODE> value.
+     * Constructs a new <CODE>SnmpCounter</CODE> from the specified <CODE>Integer.java</CODE> value.
      * @param v The initialization value.
      * @exception IllegalArgumentException The specified value is negative
      * or larger than {@link SnmpUnsignedInt#MAX_VALUE SnmpUnsignedInt.MAX_VALUE}.

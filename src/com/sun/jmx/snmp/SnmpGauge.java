@@ -51,7 +51,7 @@ public class SnmpGauge extends SnmpUnsignedInt {
     }
 
     /**
-     * Constructs a new <CODE>SnmpGauge</CODE> from the specified <CODE>Integer</CODE> value.
+     * Constructs a new <CODE>SnmpGauge</CODE> from the specified <CODE>Integer.java</CODE> value.
      * @param v The initialization value.
      * @exception IllegalArgumentException The specified value is negative
      * or larger than {@link SnmpUnsignedInt#MAX_VALUE SnmpUnsignedInt.MAX_VALUE}.

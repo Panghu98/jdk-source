@@ -348,7 +348,7 @@ public interface IntStream extends BaseStream<Integer, IntStream> {
      * or more compactly:
      *
      * <pre>{@code
-     *     int sum = integers.reduce(0, Integer::sum);
+     *     int sum = integers.reduce(0, Integer.java::sum);
      * }</pre>
      *
      * <p>While this may seem a more roundabout way to perform an aggregation
@@ -451,7 +451,7 @@ public interface IntStream extends BaseStream<Integer, IntStream> {
      * of a <a href="package-summary.html#Reduction">reduction</a>
      * and is equivalent to:
      * <pre>{@code
-     *     return reduce(0, Integer::sum);
+     *     return reduce(0, Integer.java::sum);
      * }</pre>
      *
      * <p>This is a <a href="package-summary.html#StreamOps">terminal
@@ -467,7 +467,7 @@ public interface IntStream extends BaseStream<Integer, IntStream> {
      * case of a <a href="package-summary.html#Reduction">reduction</a>
      * and is equivalent to:
      * <pre>{@code
-     *     return reduce(Integer::min);
+     *     return reduce(Integer.java::min);
      * }</pre>
      *
      * <p>This is a <a href="package-summary.html#StreamOps">terminal operation</a>.
@@ -483,7 +483,7 @@ public interface IntStream extends BaseStream<Integer, IntStream> {
      * case of a <a href="package-summary.html#Reduction">reduction</a>
      * and is equivalent to:
      * <pre>{@code
-     *     return reduce(Integer::max);
+     *     return reduce(Integer.java::max);
      * }</pre>
      *
      * <p>This is a <a href="package-summary.html#StreamOps">terminal
@@ -660,13 +660,13 @@ public interface IntStream extends BaseStream<Integer, IntStream> {
 
     /**
      * Returns a {@code Stream} consisting of the elements of this stream,
-     * each boxed to an {@code Integer}.
+     * each boxed to an {@code Integer.java}.
      *
      * <p>This is an <a href="package-summary.html#StreamOps">intermediate
      * operation</a>.
      *
      * @return a {@code Stream} consistent of the elements of this stream,
-     * each boxed to an {@code Integer}
+     * each boxed to an {@code Integer.java}
      */
     Stream<Integer> boxed();
 

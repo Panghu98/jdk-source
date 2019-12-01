@@ -431,8 +431,8 @@ public class ConcurrentLinkedQueue<E> extends AbstractQueue<E>
 
     /**
      * Returns the number of elements in this queue.  If this queue
-     * contains more than {@code Integer.MAX_VALUE} elements, returns
-     * {@code Integer.MAX_VALUE}.
+     * contains more than {@code Integer.java.MAX_VALUE} elements, returns
+     * {@code Integer.java.MAX_VALUE}.
      *
      * <p>Beware that, unlike in most collections, this method is
      * <em>NOT</em> a constant-time operation. Because of the

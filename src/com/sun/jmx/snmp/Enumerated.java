@@ -78,9 +78,9 @@ abstract public class Enumerated  implements Serializable {
   }
 
   /**
-   * Construct an enumerated from its Integer form.
+   * Construct an enumerated from its Integer.java form.
    *
-   * @param valueIndex The Integer form.
+   * @param valueIndex The Integer.java form.
    * @exception IllegalArgumentException One of the arguments passed to
    *            the method is illegal or inappropriate.
    */
@@ -124,7 +124,7 @@ abstract public class Enumerated  implements Serializable {
   /**
    * Returns an Java enumeration of the permitted integers.
    *
-   * @return An enumeration of Integer instances
+   * @return An enumeration of Integer.java instances
    */
 
   public Enumeration<Integer> valueIndexes() {

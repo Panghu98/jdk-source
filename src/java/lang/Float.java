@@ -241,7 +241,7 @@ public final class Float extends Number implements Comparable<Float> {
      * are zero, in which case a single zero is used. Next, the
      * exponent is represented by {@code "p"} followed
      * by a decimal string of the unbiased exponent as if produced by
-     * a call to {@link Integer#toString(int) Integer.toString} on the
+     * a call to {@link Integer#toString(int) Integer.java.toString} on the
      * exponent value.
      *
      * <li>If <i>m</i> is a {@code float} value with a subnormal
@@ -282,14 +282,14 @@ public final class Float extends Number implements Comparable<Float> {
      */
     public static String toHexString(float f) {
         if (Math.abs(f) < FloatConsts.MIN_NORMAL
-            &&  f != 0.0f ) {// float subnormal
+                &&  f != 0.0f ) {// float subnormal
             // Adjust exponent to create subnormal double, then
             // replace subnormal double exponent with subnormal float
             // exponent
             String s = Double.toHexString(Math.scalb((double)f,
-                                                     /* -1022+126 */
-                                                     DoubleConsts.MIN_EXPONENT-
-                                                     FloatConsts.MIN_EXPONENT));
+                    /* -1022+126 */
+                    DoubleConsts.MIN_EXPONENT-
+                            FloatConsts.MIN_EXPONENT));
             return s.replaceFirst("p-1022$", "p-126");
         }
         else // double string will be the same as float string
@@ -486,7 +486,7 @@ public final class Float extends Number implements Comparable<Float> {
      * floating-point value, {@code false} otherwise.
      * @since 1.8
      */
-     public static boolean isFinite(float f) {
+    public static boolean isFinite(float f) {
         return Math.abs(f) <= FloatConsts.MAX_VALUE;
     }
 
@@ -706,7 +706,7 @@ public final class Float extends Number implements Comparable<Float> {
      */
     public boolean equals(Object obj) {
         return (obj instanceof Float)
-               && (floatToIntBits(((Float)obj).value) == floatToIntBits(value));
+                && (floatToIntBits(((Float)obj).value) == floatToIntBits(value));
     }
 
     /**
@@ -745,8 +745,8 @@ public final class Float extends Number implements Comparable<Float> {
         // Check for NaN based on values of bit fields, maximum
         // exponent and nonzero significand.
         if ( ((result & FloatConsts.EXP_BIT_MASK) ==
-              FloatConsts.EXP_BIT_MASK) &&
-             (result & FloatConsts.SIGNIF_BIT_MASK) != 0)
+                FloatConsts.EXP_BIT_MASK) &&
+                (result & FloatConsts.SIGNIF_BIT_MASK) != 0)
             result = 0x7fc00000;
         return result;
     }
@@ -915,7 +915,7 @@ public final class Float extends Number implements Comparable<Float> {
 
         return (thisBits == anotherBits ?  0 : // Values are equal
                 (thisBits < anotherBits ? -1 : // (-0.0, 0.0) or (!NaN, NaN)
-                 1));                          // (0.0, -0.0) or (NaN, !NaN)
+                        1));                          // (0.0, -0.0) or (NaN, !NaN)
     }
 
     /**

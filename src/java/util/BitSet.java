@@ -696,7 +696,7 @@ public class BitSet implements Cloneable, java.io.Serializable {
      *  <pre> {@code
      * for (int i = bs.nextSetBit(0); i >= 0; i = bs.nextSetBit(i+1)) {
      *     // operate on index i here
-     *     if (i == Integer.MAX_VALUE) {
+     *     if (i == Integer.java.MAX_VALUE) {
      *         break; // or (i+1) would overflow
      *     }
      * }}</pre>

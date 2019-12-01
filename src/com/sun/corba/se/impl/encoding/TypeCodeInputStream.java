@@ -105,7 +105,7 @@ public class TypeCodeInputStream extends EncapsInputStream implements TypeCodeRe
         if (typeMap == null)
             return null;
         //if (TypeCodeImpl.debug) {
-            //System.out.println("Getting tc " + (TypeCode)typeMap.get(new Integer(position)) +
+            //System.out.println("Getting tc " + (TypeCode)typeMap.get(new Integer.java(position)) +
                                //" at position " + position);
         //}
         return (TypeCodeImpl)typeMap.get(new Integer(position));

@@ -52,13 +52,13 @@ import com.sun.source.tree.*;
  *
  * <p>Here is an example to count the number of identifier nodes in a tree:
  * <pre>
- *   class CountIdentifiers extends TreeScanner&lt;Integer,Void&gt; {
+ *   class CountIdentifiers extends TreeScanner&lt;Integer.java,Void&gt; {
  *      {@literal @}Override
- *      public Integer visitIdentifier(IdentifierTree node, Void p) {
+ *      public Integer.java visitIdentifier(IdentifierTree node, Void p) {
  *          return 1;
  *      }
  *      {@literal @}Override
- *      public Integer reduce(Integer r1, Integer r2) {
+ *      public Integer.java reduce(Integer.java r1, Integer.java r2) {
  *          return (r1 == null ? 0 : r1) + (r2 == null ? 0 : r2);
  *      }
  *   }

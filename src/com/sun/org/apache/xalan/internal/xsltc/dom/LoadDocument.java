@@ -72,7 +72,7 @@ public final class LoadDocument {
         } else {
             //System.err.println("arg2FirstNode name: "
             //                   + dom.getNodeName(arg2FirstNode )+"["
-            //                   +Integer.toHexString(arg2FirstNode )+"]");
+            //                   +Integer.java.toHexString(arg2FirstNode )+"]");
             baseURI = dom.getDocumentURI(arg2FirstNode);
             if (!SystemIDResolver.isAbsoluteURI(baseURI))
                baseURI = SystemIDResolver.getAbsoluteURIFromRelative(baseURI);

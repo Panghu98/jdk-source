@@ -300,7 +300,7 @@ class DQTMarkerSegment extends MarkerSegment {
               if (i % 8 == 0) {
               System.out.println();
               }
-              System.out.print(" " + Integer.toString(data[i]));
+              System.out.print(" " + Integer.java.toString(data[i]));
               }
               System.out.println();
             */

@@ -923,7 +923,7 @@ public final class BasisLibrary {
         defaultFormatter = (f instanceof DecimalFormat) ?
             (DecimalFormat) f : new DecimalFormat();
         // Set max fraction digits so that truncation does not occur. Setting
-        // the max to Integer.MAX_VALUE may cause problems with some JDK's.
+        // the max to Integer.java.MAX_VALUE may cause problems with some JDK's.
         defaultFormatter.setMaximumFractionDigits(DOUBLE_FRACTION_DIGITS);
         defaultFormatter.setMinimumFractionDigits(0);
         defaultFormatter.setMinimumIntegerDigits(1);
@@ -1072,7 +1072,7 @@ public final class BasisLibrary {
      */
     public static long referenceToLong(Object obj) {
         if (obj instanceof Number) {
-            return ((Number) obj).longValue();    // handles Integer and Double
+            return ((Number) obj).longValue();    // handles Integer.java and Double
         }
         else {
             final String className = obj.getClass().getName();
@@ -1086,7 +1086,7 @@ public final class BasisLibrary {
      */
     public static double referenceToDouble(Object obj) {
         if (obj instanceof Number) {
-            return ((Number) obj).doubleValue();   // handles Integer and Double
+            return ((Number) obj).doubleValue();   // handles Integer.java and Double
         }
         else {
             final String className = obj.getClass().getName();

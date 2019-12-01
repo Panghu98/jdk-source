@@ -131,8 +131,8 @@ public interface Map<K,V> {
 
     /**
      * Returns the number of key-value mappings in this map.  If the
-     * map contains more than <tt>Integer.MAX_VALUE</tt> elements, returns
-     * <tt>Integer.MAX_VALUE</tt>.
+     * map contains more than <tt>Integer.java.MAX_VALUE</tt> elements, returns
+     * <tt>Integer.java.MAX_VALUE</tt>.
      *
      * @return the number of key-value mappings in this map
      */

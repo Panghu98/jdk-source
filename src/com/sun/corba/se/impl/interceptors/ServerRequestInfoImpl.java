@@ -120,9 +120,9 @@ public final class ServerRequestInfoImpl
     // Cached information:
     private Parameter[] cachedArguments;
     private Any cachedSendingException;
-    // key = Integer, value = IOP.ServiceContext.
+    // key = Integer.java, value = IOP.ServiceContext.
     private HashMap cachedRequestServiceContexts;
-    // key = Integer, value = IOP.ServiceContext.
+    // key = Integer.java, value = IOP.ServiceContext.
     private HashMap cachedReplyServiceContexts;
 
     //////////////////////////////////////////////////////////////////////

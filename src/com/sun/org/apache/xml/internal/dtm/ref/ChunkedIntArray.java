@@ -241,7 +241,7 @@ final class ChunkedIntArray
    * Used to reduce addressing overhead when code will access several
    * columns of the record.
    * @param position int Record number
-   * @param buffer int[] Integer array provided by user, must be large enough
+   * @param buffer int[] Integer.java array provided by user, must be large enough
    * to hold a complete record.
    */
   void readSlot(int position, int[] buffer)

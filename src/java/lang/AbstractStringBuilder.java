@@ -28,30 +28,15 @@ package java.lang;
 import sun.misc.FloatingDecimal;
 import java.util.Arrays;
 
-/**
- * A mutable sequence of characters.
- * <p>
- * Implements a modifiable string. At any point in time it contains some
- * particular sequence of characters, but the length and content of the
- * sequence can be changed through certain method calls.
- *
- * <p>Unless otherwise noted, passing a {@code null} argument to a constructor
- * or method in this class will cause a {@link NullPointerException} to be
- * thrown.
- *
- * @author      Michael McCloskey
- * @author      Martin Buchholz
- * @author      Ulf Zibis
- * @since       1.5
- */
 abstract class AbstractStringBuilder implements Appendable, CharSequence {
     /**
-     * The value is used for character storage.
+     * 用于存储字符的值
      */
     char[] value;
 
     /**
      * The count is the number of characters used.
+     * 用于记录已经使用了的字符
      */
     int count;
 
@@ -63,6 +48,8 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
 
     /**
      * Creates an AbstractStringBuilder of the specified capacity.
+     *
+     * 容量，及字符数组的大小
      */
     AbstractStringBuilder(int capacity) {
         value = new char[capacity];
@@ -73,6 +60,8 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      *
      * @return  the length of the sequence of characters currently
      *          represented by this object
+     *
+     *          返回真实使用的人长度
      */
     @Override
     public int length() {
@@ -121,6 +110,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     private void ensureCapacityInternal(int minimumCapacity) {
         // overflow-conscious code
         if (minimumCapacity - value.length > 0) {
+            //创建一个新的字符数组
             value = Arrays.copyOf(value,
                     newCapacity(minimumCapacity));
         }
@@ -131,24 +121,29 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * Some VMs reserve some header words in an array.
      * Attempts to allocate larger arrays may result in
      * OutOfMemoryError: Requested array size exceeds VM limit
+     *
+     * 最好不要创建大数组，很容易造成OOM
+     *
+     * 最大的数组长度为Integer的最大值减去8（？？？）
      */
     private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;
 
     /**
      * Returns a capacity at least as large as the given minimum capacity.
      * Returns the current capacity increased by the same amount + 2 if
-     * that suffices.
+     * that suffices(足够).
      * Will not return a capacity greater than {@code MAX_ARRAY_SIZE}
      * unless the given minimum capacity is greater than that.
      *
      * @param  minCapacity the desired minimum capacity
      * @throws OutOfMemoryError if minCapacity is less than zero or
-     *         greater than Integer.MAX_VALUE
+     *         greater than Integer.java.MAX_VALUE
      */
     private int newCapacity(int minCapacity) {
         // overflow-conscious code
         int newCapacity = (value.length << 1) + 2;
         if (newCapacity - minCapacity < 0) {
+            //如果不需要扩容
             newCapacity = minCapacity;
         }
         return (newCapacity <= 0 || MAX_ARRAY_SIZE - newCapacity < 0)
@@ -157,6 +152,7 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
     }
 
     private int hugeCapacity(int minCapacity) {
+        //溢出判断
         if (Integer.MAX_VALUE - minCapacity < 0) { // overflow
             throw new OutOfMemoryError();
         }
@@ -1406,6 +1402,9 @@ abstract class AbstractStringBuilder implements Appendable, CharSequence {
      * high-surrogates before the operation. For example, reversing
      * "\u005CuDC00\u005CuD800" produces "\u005CuD800\u005CuDC00" which is
      * a valid surrogate pair.
+     *
+     *  对数组两边进行交换，进行倒置
+     * https://www.jb51.net/article/37399.htm
      *
      * @return  a reference to this object.
      */

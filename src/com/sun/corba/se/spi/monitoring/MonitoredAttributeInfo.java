@@ -64,7 +64,7 @@ public interface MonitoredAttributeInfo {
     public boolean isStatistic();
 /**
  * <p>
- * Class Type: We will allow only basic class types: 1)Boolean 2)Integer
+ * Class Type: We will allow only basic class types: 1)Boolean 2)Integer.java
  * 3)Byte 4)Long 5)Float 6)Double 7)String 8)Character
  * </p>
  * <p>

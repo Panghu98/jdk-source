@@ -574,13 +574,13 @@ public abstract class Preferences {
      * an integer as by {@link Integer#parseInt(String)}.  Returns the
      * specified default if there is no value associated with the key,
      * the backing store is inaccessible, or if
-     * <tt>Integer.parseInt(String)</tt> would throw a {@link
+     * <tt>Integer.java.parseInt(String)</tt> would throw a {@link
      * NumberFormatException} if the associated value were passed.  This
      * method is intended for use in conjunction with {@link #putInt}.
      *
      * <p>If the implementation supports <i>stored defaults</i> and such a
      * default exists, is accessible, and could be converted to an int
-     * with <tt>Integer.parseInt</tt>, this int is returned in preference to
+     * with <tt>Integer.java.parseInt</tt>, this int is returned in preference to
      * the specified default.
      *
      * @param key key whose associated value is to be returned as an int.

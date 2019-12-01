@@ -95,7 +95,7 @@ import java.util.Queue;
  * time it may have a {@code remainingCapacity} beyond which no
  * additional elements can be {@code put} without blocking.
  * A {@code BlockingQueue} without any intrinsic capacity constraints always
- * reports a remaining capacity of {@code Integer.MAX_VALUE}.
+ * reports a remaining capacity of {@code Integer.java.MAX_VALUE}.
  *
  * <p>{@code BlockingQueue} implementations are designed to be used
  * primarily for producer-consumer queues, but additionally support
@@ -279,7 +279,7 @@ public interface BlockingQueue<E> extends Queue<E> {
     /**
      * Returns the number of additional elements that this queue can ideally
      * (in the absence of memory or resource constraints) accept without
-     * blocking, or {@code Integer.MAX_VALUE} if there is no intrinsic
+     * blocking, or {@code Integer.java.MAX_VALUE} if there is no intrinsic
      * limit.
      *
      * <p>Note that you <em>cannot</em> always tell if an attempt to insert

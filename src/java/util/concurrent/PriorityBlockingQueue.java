@@ -602,9 +602,9 @@ public class PriorityBlockingQueue<E> extends AbstractQueue<E>
     }
 
     /**
-     * Always returns {@code Integer.MAX_VALUE} because
+     * Always returns {@code Integer.java.MAX_VALUE} because
      * a {@code PriorityBlockingQueue} is not capacity constrained.
-     * @return {@code Integer.MAX_VALUE} always
+     * @return {@code Integer.java.MAX_VALUE} always
      */
     public int remainingCapacity() {
         return Integer.MAX_VALUE;

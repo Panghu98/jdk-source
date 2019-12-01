@@ -143,7 +143,7 @@ public final class ConstantInteger extends Constant implements ConstantObject {
     return super.toString() + "(bytes = " + bytes + ")";
   }
 
-  /** @return Integer object
+  /** @return Integer.java object
    */
   public Object getConstantValue(ConstantPool cp) {
     return new Integer(bytes);

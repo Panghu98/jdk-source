@@ -45,8 +45,8 @@ import java.util.regex.PatternSyntaxException;
  * implemented as instances of this class.
  * <p>
  * Strings are constant; their values cannot be changed after they
- * are created. String buffers support mutable strings.
- * Because String objects are immutable they can be shared. For example:
+ * are created. (字符串是常量创建之后就不再改变)String buffers support mutable strings.
+ * Because String objects are immutable they can be shared（不可变但是是共享的）. For example:
  * <blockquote><pre>
  *     String str = "abc";
  * </pre></blockquote><p>
@@ -64,15 +64,15 @@ import java.util.regex.PatternSyntaxException;
  *     String d = cde.substring(1, 2);
  * </pre></blockquote>
  * <p>
- * The class {@code String} includes methods for examining
- * individual characters of the sequence, for comparing strings, for
+ * The class {@code String} includes methods for examining（检查）
+ * individual（单个） characters of the sequence, for comparing strings, for
  * searching strings, for extracting substrings, and for creating a
  * copy of a string with all characters translated to uppercase or to
  * lowercase. Case mapping is based on the Unicode Standard version
  * specified by the {@link java.lang.Character Character} class.
  * <p>
  * The Java language provides special support for the string
- * concatenation operator (&nbsp;+&nbsp;), and for conversion of
+ * concatenation（级联） operator (&nbsp;+&nbsp;), and for conversion of
  * other objects to strings. String concatenation is implemented
  * through the {@code StringBuilder}(or {@code StringBuffer})
  * class and its {@code append} method.
@@ -84,14 +84,14 @@ import java.util.regex.PatternSyntaxException;
  *
  * <p> Unless otherwise noted, passing a <tt>null</tt> argument to a constructor
  * or method in this class will cause a {@link NullPointerException} to be
- * thrown.
+ * thrown.（为null的对象调用toString会抛出异常）
  *
  * <p>A {@code String} represents a string in the UTF-16 format
  * in which <em>supplementary characters</em> are represented by <em>surrogate
  * pairs</em> (see the section <a href="Character.html#unicode">Unicode
  * Character Representations</a> in the {@code Character} class for
  * more information).
- * Index values refer to {@code char} code units, so a supplementary
+ * Index values refer to {@code char} code units, so a supplementary（补充）
  * character uses two positions in a {@code String}.
  * <p>The {@code String} class provides methods for dealing with
  * Unicode code points (i.e., characters), in addition to those for
@@ -120,7 +120,7 @@ public final class String
     private static final long serialVersionUID = -6849794470754667710L;
 
     /**
-     * Class String is special cased within the Serialization Stream Protocol.
+     * Class String is special cased（装箱） within the Serialization Stream Protocol.
      *
      * A String instance is written into an ObjectOutputStream according to
      * <a href="{@docRoot}/../platform/serialization/spec/output.html">
@@ -131,7 +131,7 @@ public final class String
 
     /**
      * Initializes a newly created {@code String} object so that it represents
-     * an empty character sequence.  Note that use of this constructor is
+     * an empty character sequence（空字符 串）.  Note that use of this constructor is
      * unnecessary since Strings are immutable.
      */
     public String() {
@@ -142,7 +142,7 @@ public final class String
      * Initializes a newly created {@code String} object so that it represents
      * the same sequence of characters as the argument; in other words, the
      * newly created string is a copy of the argument string. Unless an
-     * explicit copy of {@code original} is needed, use of this constructor is
+     * explicit（显式的） copy of {@code original} is needed, use of this constructor is
      * unnecessary since Strings are immutable.
      *
      * @param  original
@@ -156,8 +156,10 @@ public final class String
     /**
      * Allocates a new {@code String} so that it represents the sequence of
      * characters currently contained in the character array argument. The
-     * contents of the character array are copied; subsequent modification of
+     * contents of the character array are copied; subsequent（随后的） modification of
      * the character array does not affect the newly created string.
+     *
+     * 字符数组随后的修改并不会改变最新创建的字符串(immutable)
      *
      * @param  value
      *         The initial value of the string
@@ -195,6 +197,7 @@ public final class String
             if (count < 0) {
                 throw new StringIndexOutOfBoundsException(count);
             }
+            //count和offset都为0
             if (offset <= value.length) {
                 this.value = "".value;
                 return;
@@ -259,9 +262,11 @@ public final class String
         int n = count;
         for (int i = offset; i < end; i++) {
             int c = codePoints[i];
+            //检查字符编码格式
             if (Character.isBmpCodePoint(c))
                 continue;
             else if (Character.isValidCodePoint(c))
+                //计算合法字符个数
                 n++;
             else throw new IllegalArgumentException(Integer.toString(c));
         }
@@ -676,6 +681,8 @@ public final class String
      *
      * @param      index the index to the {@code char} values
      * @return     the code point value of the character at the
+     *
+     * 用于计算对应下标的ASCII值
      *             {@code index}
      * @exception  IndexOutOfBoundsException  if the {@code index}
      *             argument is negative or not less than the length of this
@@ -706,6 +713,8 @@ public final class String
      *
      * @param     index the index following the code point that should be returned
      * @return    the Unicode code point value before the given index.
+     *
+     * 计算下标前一个的ASCII值
      * @exception IndexOutOfBoundsException if the {@code index}
      *            argument is less than 1 or greater than the length
      *            of this string.
@@ -720,6 +729,9 @@ public final class String
     }
 
     /**
+     * String类length与codePointCount的区别
+     * 对于普通字符串，这两种方法得到的值是一样的，但对于UniCode编码来说，还是有一点区别。
+     *
      * Returns the number of Unicode code points in the specified text
      * range of this {@code String}. The text range begins at the
      * specified {@code beginIndex} and extends to the
@@ -778,6 +790,8 @@ public final class String
     /**
      * Copy characters from this string into dst starting at dstBegin.
      * This method doesn't perform any range checking.
+     *
+     * 没有检查直接执行
      */
     void getChars(char dst[], int dstBegin) {
         System.arraycopy(value, 0, dst, dstBegin, value.length);
@@ -1494,7 +1508,7 @@ public final class String
      * is true. In either case, if no such character occurs in this
      * string, then {@code -1} is returned.
      *
-     * @param   ch   a character (Unicode code point).
+     * @param   ch (传入的是字符，字符和数字之间可以相互转换)  a character (Unicode code point).
      * @return  the index of the first occurrence of the character in the
      *          character sequence represented by this object, or
      *          {@code -1} if the character does not occur.
@@ -3089,7 +3103,7 @@ public final class String
      * Returns the string representation of the {@code int} argument.
      * <p>
      * The representation is exactly the one returned by the
-     * {@code Integer.toString} method of one argument.
+     * {@code Integer.java.toString} method of one argument.
      *
      * @param   i   an {@code int}.
      * @return  a string representation of the {@code int} argument.
@@ -3142,9 +3156,9 @@ public final class String
     }
 
     /**
-     * Returns a canonical representation for the string object.
+     * Returns a canonical（典范的） representation for the string object.
      * <p>
-     * A pool of strings, initially empty, is maintained privately by the
+     * A pool of strings（字符串常量）, initially empty, is maintained privately by the
      * class {@code String}.
      * <p>
      * When the intern method is invoked, if the pool already contains a

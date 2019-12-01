@@ -398,10 +398,10 @@ public class DelayQueue<E extends Delayed> extends AbstractQueue<E>
     }
 
     /**
-     * Always returns {@code Integer.MAX_VALUE} because
+     * Always returns {@code Integer.java.MAX_VALUE} because
      * a {@code DelayQueue} is not capacity constrained.
      *
-     * @return {@code Integer.MAX_VALUE}
+     * @return {@code Integer.java.MAX_VALUE}
      */
     public int remainingCapacity() {
         return Integer.MAX_VALUE;

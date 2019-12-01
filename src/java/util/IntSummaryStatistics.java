@@ -70,7 +70,7 @@ public class IntSummaryStatistics implements IntConsumer {
 
     /**
      * Construct an empty instance with zero count, zero sum,
-     * {@code Integer.MAX_VALUE} min, {@code Integer.MIN_VALUE} max and zero
+     * {@code Integer.java.MAX_VALUE} min, {@code Integer.java.MIN_VALUE} max and zero
      * average.
      */
     public IntSummaryStatistics() { }
@@ -121,20 +121,20 @@ public class IntSummaryStatistics implements IntConsumer {
     }
 
     /**
-     * Returns the minimum value recorded, or {@code Integer.MAX_VALUE} if no
+     * Returns the minimum value recorded, or {@code Integer.java.MAX_VALUE} if no
      * values have been recorded.
      *
-     * @return the minimum value, or {@code Integer.MAX_VALUE} if none
+     * @return the minimum value, or {@code Integer.java.MAX_VALUE} if none
      */
     public final int getMin() {
         return min;
     }
 
     /**
-     * Returns the maximum value recorded, or {@code Integer.MIN_VALUE} if no
+     * Returns the maximum value recorded, or {@code Integer.java.MIN_VALUE} if no
      * values have been recorded.
      *
-     * @return the maximum value, or {@code Integer.MIN_VALUE} if none
+     * @return the maximum value, or {@code Integer.java.MIN_VALUE} if none
      */
     public final int getMax() {
         return max;

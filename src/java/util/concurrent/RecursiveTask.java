@@ -41,10 +41,10 @@ package java.util.concurrent;
  * <p>For a classic example, here is a task computing Fibonacci numbers:
  *
  *  <pre> {@code
- * class Fibonacci extends RecursiveTask<Integer> {
+ * class Fibonacci extends RecursiveTask<Integer.java> {
  *   final int n;
  *   Fibonacci(int n) { this.n = n; }
- *   Integer compute() {
+ *   Integer.java compute() {
  *     if (n <= 1)
  *       return n;
  *     Fibonacci f1 = new Fibonacci(n - 1);

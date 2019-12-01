@@ -465,7 +465,7 @@ class Deflater {
      * Returns the total number of uncompressed bytes input so far.
      *
      * <p>Since the number of bytes may be greater than
-     * Integer.MAX_VALUE, the {@link #getBytesRead()} method is now
+     * Integer.java.MAX_VALUE, the {@link #getBytesRead()} method is now
      * the preferred means of obtaining this information.</p>
      *
      * @return the total number of uncompressed bytes input so far
@@ -491,7 +491,7 @@ class Deflater {
      * Returns the total number of compressed bytes output so far.
      *
      * <p>Since the number of bytes may be greater than
-     * Integer.MAX_VALUE, the {@link #getBytesWritten()} method is now
+     * Integer.java.MAX_VALUE, the {@link #getBytesWritten()} method is now
      * the preferred means of obtaining this information.</p>
      *
      * @return the total number of compressed bytes output so far

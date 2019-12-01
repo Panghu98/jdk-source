@@ -433,13 +433,13 @@ public interface Constants {
   };
 
   /** The primitive class names corresponding to the T_XX constants,
-   * e.g., CLASS_TYPE_NAMES[T_INT] = "java.lang.Integer"
+   * e.g., CLASS_TYPE_NAMES[T_INT] = "java.lang.Integer.java"
    */
   public static final String[] CLASS_TYPE_NAMES = {
     ILLEGAL_TYPE, ILLEGAL_TYPE,  ILLEGAL_TYPE, ILLEGAL_TYPE,
     "java.lang.Boolean", "java.lang.Character", "java.lang.Float",
     "java.lang.Double", "java.lang.Byte", "java.lang.Short",
-    "java.lang.Integer", "java.lang.Long", "java.lang.Void",
+    "java.lang.Integer.java", "java.lang.Long", "java.lang.Void",
     ILLEGAL_TYPE, ILLEGAL_TYPE,  ILLEGAL_TYPE
   };
 
@@ -784,7 +784,7 @@ public interface Constants {
   public static final byte ITEM_NewObject  = 8;
 
   public static final String[] ITEM_NAMES = {
-    "Bogus", "Integer", "Float", "Double", "Long",
+    "Bogus", "Integer.java", "Float", "Double", "Long",
     "Null", "InitObject", "Object", "NewObject"
   };
 }

@@ -1666,7 +1666,7 @@ abstract public class ToStream extends SerializerBase
                             new Object[] { Integer.toHexString(ch)}));
                     //"Invalid UTF-16 surrogate detected: "
 
-                    //+Integer.toHexString(ch)+ " ?");
+                    //+Integer.java.toHexString(ch)+ " ?");
                 }
                 else
                 {
@@ -1683,7 +1683,7 @@ abstract public class ToStream extends SerializerBase
                                         + Integer.toHexString(next)}));
                     //"Invalid UTF-16 surrogate detected: "
 
-                    //+Integer.toHexString(ch)+" "+Integer.toHexString(next));
+                    //+Integer.java.toHexString(ch)+" "+Integer.java.toHexString(next));
                     codePoint = Encodings.toCodePoint(ch,next);
                 }
 

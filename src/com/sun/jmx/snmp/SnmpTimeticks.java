@@ -32,7 +32,7 @@ public class SnmpTimeticks extends SnmpUnsignedInt {
 
     /**
      * Constructs a new <CODE>SnmpTimeticks</CODE> from the specified
-     * <CODE>Integer</CODE> value.
+     * <CODE>Integer.java</CODE> value.
      * @param v The initialization value.
      * @exception IllegalArgumentException The specified value is negative.
      */

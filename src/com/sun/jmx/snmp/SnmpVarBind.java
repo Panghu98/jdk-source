@@ -252,8 +252,8 @@ public class SnmpVarBind implements SnmpDataTypeEnums, Cloneable, Serializable {
      * with the specified integer value.
      * The status is updated to indicate that the value is valid.
      * @param val The new integer value.
-     * @exception IllegalArgumentException The specified value is smaller than <CODE>Integer.MIN_VALUE</CODE>
-     * or larger than <CODE>Integer.MAX_VALUE</CODE>.
+     * @exception IllegalArgumentException The specified value is smaller than <CODE>Integer.java.MIN_VALUE</CODE>
+     * or larger than <CODE>Integer.java.MAX_VALUE</CODE>.
      * @see SnmpInt
      */
     final public void setSnmpIntValue(long val) throws IllegalArgumentException {

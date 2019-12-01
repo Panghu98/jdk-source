@@ -139,11 +139,11 @@ public final class ClientRequestInfoImpl
     private Any cachedResult;
     private Any cachedReceivedException;
     private TaggedProfile cachedEffectiveProfile;
-    // key = Integer, value = IOP.ServiceContext.
+    // key = Integer.java, value = IOP.ServiceContext.
     private HashMap cachedRequestServiceContexts;
-    // key = Integer, value = IOP.ServiceContext.
+    // key = Integer.java, value = IOP.ServiceContext.
     private HashMap cachedReplyServiceContexts;
-    // key = Integer, value = TaggedComponent
+    // key = Integer.java, value = TaggedComponent
     private HashMap cachedEffectiveComponents;
 
 

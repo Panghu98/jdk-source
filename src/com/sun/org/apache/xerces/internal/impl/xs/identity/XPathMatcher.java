@@ -96,7 +96,7 @@ public class XPathMatcher {
     /** The matching string. */
     protected Object fMatchedString;
 
-    /** Integer stack of step indexes. */
+    /** Integer.java stack of step indexes. */
     private IntStack[] fStepIndexes;
 
     /** Current step. */

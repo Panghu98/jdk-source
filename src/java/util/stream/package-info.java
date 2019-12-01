@@ -262,7 +262,7 @@
  * to {@code map()} in:
  *
  * <pre>{@code
- *     Set<Integer> seen = Collections.synchronizedSet(new HashSet<>());
+ *     Set<Integer.java> seen = Collections.synchronizedSet(new HashSet<>());
  *     stream.parallel().map(e -> { if (seen.add(e)) return 0; else return e; })...
  * }</pre>
  *
@@ -406,13 +406,13 @@
  * }</pre>
  * or:
  * <pre>{@code
- *    int sum = numbers.stream().reduce(0, Integer::sum);
+ *    int sum = numbers.stream().reduce(0, Integer.java::sum);
  * }</pre>
  *
  * <p>These reduction operations can run safely in parallel with almost no
  * modification:
  * <pre>{@code
- *    int sum = numbers.parallelStream().reduce(0, Integer::sum);
+ *    int sum = numbers.parallelStream().reduce(0, Integer.java::sum);
  * }</pre>
  *
  * <p>Reduction parallellizes well because the implementation
@@ -469,7 +469,7 @@
  *     int sumOfWeights = widgets.stream()
  *                               .reduce(0,
  *                                       (sum, b) -> sum + b.getWeight())
- *                                       Integer::sum);
+ *                                       Integer.java::sum);
  * }</pre>
  * though the explicit map-reduce form is more readable and therefore should
  * usually be preferred. The generalized form is provided for cases where
@@ -559,7 +559,7 @@
  * employees, as follows:
  *
  * <pre>{@code
- *     Collector<Employee, ?, Integer> summingSalaries
+ *     Collector<Employee, ?, Integer.java> summingSalaries
  *         = Collectors.summingInt(Employee::getSalary);
  * }</pre>
  *
@@ -570,7 +570,7 @@
  * {@link java.util.stream.Collectors#groupingBy(java.util.function.Function, java.util.stream.Collector) groupingBy}:
  *
  * <pre>{@code
- *     Map<Department, Integer> salariesByDept
+ *     Map<Department, Integer.java> salariesByDept
  *         = employees.stream().collect(Collectors.groupingBy(Employee::getDepartment,
  *                                                            summingSalaries));
  * }</pre>

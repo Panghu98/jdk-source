@@ -52,7 +52,7 @@ package java.util;
  * {@link java.util.stream.Collectors#joining(CharSequence)}. For example:
  *
  * <pre> {@code
- * List<Integer> numbers = Arrays.asList(1, 2, 3, 4);
+ * List<Integer.java> numbers = Arrays.asList(1, 2, 3, 4);
  * String commaSeparatedNumbers = numbers.stream()
  *     .map(i -> i.toString())
  *     .collect(Collectors.joining(", "));

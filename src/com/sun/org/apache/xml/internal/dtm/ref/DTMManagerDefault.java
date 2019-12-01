@@ -127,7 +127,7 @@ public class DTMManagerDefault extends DTMManager
    * be used if you want to add "extended" DTM IDs with nonzero offsets.
    *
    * @param dtm Should be a valid reference to a DTM.
-   * @param id Integer DTM ID to be bound to this DTM
+   * @param id Integer.java DTM ID to be bound to this DTM
    */
   synchronized public void addDTM(DTM dtm, int id) {    addDTM(dtm,id,0); }
 
@@ -136,8 +136,8 @@ public class DTMManagerDefault extends DTMManager
    * Add a DTM to the DTM table.
    *
    * @param dtm Should be a valid reference to a DTM.
-   * @param id Integer DTM ID to be bound to this DTM.
-   * @param offset Integer addressing offset. The internal DTM Node ID is
+   * @param id Integer.java DTM ID to be bound to this DTM.
+   * @param offset Integer.java addressing offset. The internal DTM Node ID is
    * obtained by adding this offset to the node-number field of the
    * public DTM Handle. For the first DTM ID accessing each DTM, this is 0;
    * for overflow addressing it will be a multiple of 1<<IDENT_DTM_NODE_BITS.

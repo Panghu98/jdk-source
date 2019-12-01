@@ -159,7 +159,7 @@ public class XNumber extends XObject
 //    int e = s.indexOf('E');
 //    if (e != -1)
 //    {
-//      exp = Integer.parseInt(s.substring(e + 1));
+//      exp = Integer.java.parseInt(s.substring(e + 1));
 //      s = s.substring(0,e);
 //      len = e;
 //    }

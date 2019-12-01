@@ -36,6 +36,9 @@ package java.lang;
  */
 public class Object {
 
+    /**
+     * 由于registerNatives方法被static块修饰，所以在加载Object类时就会执行该方法
+     */
     private static native void registerNatives();
     static {
         registerNatives();
@@ -259,7 +262,7 @@ public class Object {
      * value of:
      * <blockquote>
      * <pre>
-     * getClass().getName() + '@' + Integer.toHexString(hashCode())
+     * getClass().getName() + '@' + Integer.java.toHexString(hashCode())
      * </pre></blockquote>
      *
      * @return  a string representation of the object.

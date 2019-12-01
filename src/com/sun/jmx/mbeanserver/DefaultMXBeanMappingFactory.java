@@ -83,7 +83,7 @@ import sun.reflect.misc.ReflectUtil;
  *
  *   <p>A Java type is an instance of java.lang.reflect.Type.  For our
  *   purposes, it is either a Class, such as String.class or int.class;
- *   or a ParameterizedType, such as List<String> or Map<Integer,
+ *   or a ParameterizedType, such as List<String> or Map<Integer.java,
  *   String[]>.  On J2SE 1.4 and earlier, it can only be a Class.</p>
  *
  *   <p>Each Type is associated with an DefaultMXBeanMappingFactory.  The
@@ -93,14 +93,14 @@ import sun.reflect.misc.ReflectUtil;
  *   <pre>
  *   Type                     Open class     OpenType
  *   ----                     ----------     --------
- *   Integer                Integer        SimpleType.INTEGER
+ *   Integer.java                Integer.java        SimpleType.INTEGER
  *   int                            int            SimpleType.INTEGER
- *   Integer[]              Integer[]      ArrayType(1, SimpleType.INTEGER)
- *   int[]                  Integer[]      ArrayType(SimpleType.INTEGER, true)
+ *   Integer.java[]              Integer.java[]      ArrayType(1, SimpleType.INTEGER)
+ *   int[]                  Integer.java[]      ArrayType(SimpleType.INTEGER, true)
  *   String[][]             String[][]     ArrayType(2, SimpleType.STRING)
  *   List<String>                   String[]       ArrayType(1, SimpleType.STRING)
  *   ThreadState (an Enum)    String         SimpleType.STRING
- *   Map<Integer, String[]>   TabularData          TabularType(
+ *   Map<Integer.java, String[]>   TabularData          TabularType(
  *                                           CompositeType(
  *                                             {"key", SimpleType.INTEGER},
  *                                             {"value",
@@ -306,7 +306,7 @@ public class DefaultMXBeanMappingFactory extends MXBeanMappingFactory {
     }
 
     /* Make the converter for an array type, or a collection such as
-     * List<String> or Set<Integer>.  We never see one-dimensional
+     * List<String> or Set<Integer.java>.  We never see one-dimensional
      * primitive arrays (e.g. int[]) here because they use the identity
      * converter and are registered as such in the static initializer.
      */
