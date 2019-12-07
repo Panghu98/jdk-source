@@ -1335,7 +1335,7 @@ public class ForkJoinPool extends AbstractExecutorService {
     private static final int SPINS  = 0;
 
     /**
-     * Increment for seed generators. See class ThreadLocal for
+     * Increment for seed generators. See class ThreadLocal_note.md for
      * explanation.
      */
     private static final int SEED_INCREMENT = 0x9e3779b9;

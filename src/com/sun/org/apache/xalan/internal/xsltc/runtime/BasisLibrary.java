@@ -76,7 +76,7 @@ public final class BasisLibrary {
     };
 
     /**
-     * ThreadLocal for StringBuffer used
+     * ThreadLocal_note.md for StringBuffer used
      */
     private static final ThreadLocal<StringBuffer> threadLocalStringBuffer =
         new ThreadLocal<StringBuffer> () {

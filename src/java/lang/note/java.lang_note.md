@@ -113,3 +113,4 @@
 - 基本类中有一个`TYPE`属性，该属性用于获取该封装类所对应的基本类型
 
 ## Thread
+[Thread类阅读](https://github.com/Panghu98/jdk-source/blob/master/src/java/lang/note/java.lang.md)

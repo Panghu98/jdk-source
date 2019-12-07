@@ -116,7 +116,7 @@ public final class ClientRequestInfoImpl
     // The number of times this info object has been (re)used.  This is
     // incremented every time a request is retried, and decremented every
     // time a request is complete.  When this reaches zero, the info object
-    // is popped from the ClientRequestInfoImpl ThreadLocal stack in the ORB.
+    // is popped from the ClientRequestInfoImpl ThreadLocal_note.md stack in the ORB.
     private int entryCount = 0;
 
     // The RequestImpl is set when the call is DII based.

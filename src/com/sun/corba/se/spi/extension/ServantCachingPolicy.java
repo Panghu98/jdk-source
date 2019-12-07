@@ -45,7 +45,7 @@ import com.sun.corba.se.impl.orbutil.ORBConstants ;
 * <li>POA current semantics
 * <li>Proper handling of POA destroy.
 * <ol>
-* POA current semantics requires maintaining a ThreadLocal stack of
+* POA current semantics requires maintaining a ThreadLocal_note.md stack of
 * invocation information that is always available for POACurrent operations.
 * Maintaining this stack is expensive on the timescale of optimized co-located
 * calls, so the option is provided to turn it off.  Similarly, causing

@@ -249,7 +249,7 @@ public class CorbaContactInfoListIteratorImpl
         // To keep the two-level dispatching (first level chooses ContactInfo,
         // second level is specific to that ContactInfo/EPT) we need to
         // ensure that the request dispatchers get their iterator from the
-        // InvocationStack (i.e., ThreadLocal). That way if the list iterator
+        // InvocationStack (i.e., ThreadLocal_note.md). That way if the list iterator
         // needs a complete update it happens right here.
         ((CorbaInvocationInfo)orb.getInvocationInfo())
             .setContactInfoListIterator(contactInfoList.iterator());

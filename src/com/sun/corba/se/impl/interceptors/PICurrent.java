@@ -57,7 +57,7 @@ public class PICurrent extends org.omg.CORBA.LocalObject
     // to be called.
     private boolean orbInitializing;
 
-    // ThreadLocal contains a stack of SlotTable which are used
+    // ThreadLocal_note.md contains a stack of SlotTable which are used
     // for resolve_initial_references( "PICurrent" );
     private ThreadLocal threadLocalSlotTable
         = new ThreadLocal( ) {

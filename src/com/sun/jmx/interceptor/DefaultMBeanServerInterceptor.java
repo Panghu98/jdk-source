@@ -1530,7 +1530,7 @@ public class DefaultMBeanServerInterceptor implements MBeanServerInterceptor {
                 /*
                  * query.setMBeanServer is probably
                  * QueryEval.setMBeanServer so put back the old
-                 * value.  Since that method uses a ThreadLocal
+                 * value.  Since that method uses a ThreadLocal_note.md
                  * variable, this code is only needed for the
                  * unusual case where the user creates a custom
                  * QueryExp that calls a nested query on another
@@ -1578,7 +1578,7 @@ public class DefaultMBeanServerInterceptor implements MBeanServerInterceptor {
                 /*
                  * query.setMBeanServer is probably
                  * QueryEval.setMBeanServer so put back the old
-                 * value.  Since that method uses a ThreadLocal
+                 * value.  Since that method uses a ThreadLocal_note.md
                  * variable, this code is only needed for the
                  * unusual case where the user creates a custom
                  * QueryExp that calls a nested query on another
@@ -1630,7 +1630,7 @@ public class DefaultMBeanServerInterceptor implements MBeanServerInterceptor {
                     /*
                      * query.setMBeanServer is probably
                      * QueryEval.setMBeanServer so put back the old
-                     * value.  Since that method uses a ThreadLocal
+                     * value.  Since that method uses a ThreadLocal_note.md
                      * variable, this code is only needed for the
                      * unusual case where the user creates a custom
                      * QueryExp that calls a nested query on another

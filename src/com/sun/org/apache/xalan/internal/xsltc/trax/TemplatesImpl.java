@@ -112,7 +112,7 @@ public final class TemplatesImpl implements Templates, Serializable {
     /**
      * Cache the DTM for the stylesheet in a thread local variable,
      * which is used by the document('') function.
-     * Use ThreadLocal because a DTM cannot be shared between
+     * Use ThreadLocal_note.md because a DTM cannot be shared between
      * multiple threads.
      * Declaring it transient to fix bug 22438
      */

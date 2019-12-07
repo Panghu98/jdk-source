@@ -119,7 +119,7 @@ public class ThreadLocalRandom extends Random {
      * SplittableRandom, that were in part derived from a previous
      * version of this class.
      *
-     * The nextLocalGaussian ThreadLocal supports the very rarely used
+     * The nextLocalGaussian ThreadLocal_note.md supports the very rarely used
      * nextGaussian method by providing a holder for the second of a
      * pair of them. As is true for the base class version of this
      * method, this time/space tradeoff is probably never worthwhile,

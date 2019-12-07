@@ -126,7 +126,7 @@ public abstract class ResourceResolverSpi {
      * Tells if the implementation does can be reused by several threads safely.
      * It normally means that the implementation does not have any member, or there is
      * member change between engineCanResolve & engineResolve invocations. Or it maintains all
-     * member info in ThreadLocal methods.
+     * member info in ThreadLocal_note.md methods.
      */
     public boolean engineIsThreadSafe() {
         return false;

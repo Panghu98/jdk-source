@@ -271,7 +271,7 @@ public class ReentrantReadWriteLock
 
         /**
          * A counter for per-thread read hold counts.
-         * Maintained as a ThreadLocal; cached in cachedHoldCounter
+         * Maintained as a ThreadLocal_note.md; cached in cachedHoldCounter
          */
         static final class HoldCounter {
             int count = 0;
@@ -280,7 +280,7 @@ public class ReentrantReadWriteLock
         }
 
         /**
-         * ThreadLocal subclass. Easiest to explicitly define for sake
+         * ThreadLocal_note.md subclass. Easiest to explicitly define for sake
          * of deserialization mechanics.
          */
         static final class ThreadLocalHoldCounter
@@ -299,7 +299,7 @@ public class ReentrantReadWriteLock
 
         /**
          * The hold count of the last thread to successfully acquire
-         * readLock. This saves ThreadLocal lookup in the common case
+         * readLock. This saves ThreadLocal_note.md lookup in the common case
          * where the next thread to release is the last one to
          * acquire. This is non-volatile since it is just used
          * as a heuristic, and would be great for threads to cache.

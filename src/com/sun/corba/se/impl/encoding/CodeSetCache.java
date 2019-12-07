@@ -41,7 +41,7 @@ import java.util.WeakHashMap;
 class CodeSetCache
 {
     /**
-     * The ThreadLocal data is a 2 element Map array indexed
+     * The ThreadLocal_note.md data is a 2 element Map array indexed
      * by BTC_CACHE_MAP and CTB_CACHE_MAP.
      */
     private ThreadLocal converterCaches = new ThreadLocal() {

@@ -160,7 +160,7 @@ public class PIHandlerImpl implements PIHandler
         TRANSPORT_RETRY.value   // = ReplyMessage.NEEDS_ADDRESSING_MODE
     };
 
-    // ThreadLocal containing a stack to store client request info objects
+    // ThreadLocal_note.md containing a stack to store client request info objects
     // and a disable count.
     private ThreadLocal threadLocalClientRequestInfoStack =
         new ThreadLocal() {
@@ -169,7 +169,7 @@ public class PIHandlerImpl implements PIHandler
             }
         };
 
-    // ThreadLocal containing the current server request info object.
+    // ThreadLocal_note.md containing the current server request info object.
     private ThreadLocal threadLocalServerRequestInfoStack =
         new ThreadLocal() {
             protected Object initialValue() {
@@ -192,7 +192,7 @@ public class PIHandlerImpl implements PIHandler
         threadLocalServerRequestInfoStack = null;
     }
 
-    // Class to contain all ThreadLocal data for ClientRequestInfo
+    // Class to contain all ThreadLocal_note.md data for ClientRequestInfo
     // maintenance.
     //
     // We use an ArrayList instead since it is not thread-safe.
@@ -779,7 +779,7 @@ public class PIHandlerImpl implements PIHandler
 
     /**
      * Convenience method to get the ClientRequestInfoImpl object off the
-     * top of the ThreadLocal stack.  Throws an INTERNAL exception if
+     * top of the ThreadLocal_note.md stack.  Throws an INTERNAL exception if
      * the Info stack is empty.
      */
     private ClientRequestInfoImpl peekClientRequestInfoImplStack() {
@@ -797,7 +797,7 @@ public class PIHandlerImpl implements PIHandler
 
     /**
      * Convenience method to get the ServerRequestInfoImpl object off the
-     * top of the ThreadLocal stack.  Returns null if there are none.
+     * top of the ThreadLocal_note.md stack.  Returns null if there are none.
      */
     private ServerRequestInfoImpl peekServerRequestInfoImplStack() {
         RequestInfoStack infoStack =
