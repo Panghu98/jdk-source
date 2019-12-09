@@ -1,5 +1,7 @@
 package test.java.lang;
 
+import java.util.HashMap;
+
 public class HashMapTest {
 
     private static final int MAXIMUM_CAPACITY = 1 << 30;
@@ -15,7 +17,11 @@ public class HashMapTest {
     }
 
     public static void main(String[] args) {
-        System.err.println(tableSizeFor(1));
+        HashMap<Integer, String> hashMap = new HashMap<>();
+        for (int i = 0; i < 100; i++) {
+            hashMap.put(i,"i:"+i);
+        }
+        System.err.println(hashMap);
     }
 
 }

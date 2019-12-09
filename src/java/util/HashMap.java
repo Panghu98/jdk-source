@@ -666,6 +666,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
             else {
                 // 遍历这个桶对应的链表，binCount用于存储链表中元素的个数
                 for (int binCount = 0; ; ++binCount) {
+                    //使用的是尾插法
                     // 如果链表遍历完了都没有找到相同key的元素，说明该key对应的元素不存在，则在链表最后插入一个新节点
                     if ((e = p.next) == null) {
                         p.next = newNode(hash, key, value, null);
@@ -735,16 +736,20 @@ public class HashMap<K,V> extends AbstractMap<K,V>
                     oldCap >= DEFAULT_INITIAL_CAPACITY)
                 // 如果旧容量的两倍小于最大容量并且旧容量大于默认初始容量（16），则容量扩大为两部，扩容门槛也扩大为两倍
                 newThr = oldThr << 1; // double threshold
+           // oldCap == 0 && oldThr > 0
         } else if (oldThr > 0) // initial capacity was placed in threshold
-            // 使用非默认构造方法创建的map，第一次插入元素会走到这里
-            // 如果旧容量为0且旧扩容门槛大于0，则把新容量赋值为旧门槛
-            newCap = oldThr;
+                // 使用非默认构造方法创建的map，第一次插入元素会走到这里
+                // 如果旧容量为0且旧扩容门槛大于0，则把新容量赋值为旧门槛
+                newCap = oldThr;
+        //oldCap == 0 && oldThr ==  0
         else {               // zero initial threshold signifies using defaults
             // 调用默认构造方法创建的map，第一次插入元素会走到这里
             // 如果旧容量旧扩容门槛都是0，说明还未初始化过，则初始化容量为默认容量，扩容门槛为默认容量*默认装载因子
             newCap = DEFAULT_INITIAL_CAPACITY;
             newThr = (int) (DEFAULT_LOAD_FACTOR * DEFAULT_INITIAL_CAPACITY);
         }
+
+
         if (newThr == 0) {
             // 如果新扩容门槛为0，则计算为容量*装载因子，但不能超过最大容量
             float ft = (float) newCap * loadFactor;

@@ -30,9 +30,57 @@ ArrayList是一种以数组实现的List，与数组相比，它具有动态扩�
 - ArrayList实现了Cloneable，可以被克隆。
 - ArrayList实现了Serializable，可以被序列化。
 
-（1）DEFAULT_CAPACITY 默认容量为10，也就是通过new
-ArrayList()创建时的默认容量。 （2）EMPTY_ELEMENTDATA
-空的数组，这种是通过new ArrayList(0)创建时用的是这个空数组。
+（1）DEFAULT_CAPACITY 默认容量为10，也就是通过newArrayList()创建时的默认容量。
+ （2）EMPTY_ELEMENTDATA空的数组，这种是通过new ArrayList(0)创建时用的是这个空数组。
+
+## 属性
+```
+   /**
+     * 初始化默认容量。
+     */
+    private static final int DEFAULT_CAPACITY = 10;
+
+    /**
+     * 指定该ArrayList容量为0时，返回该空数组。
+     */
+    private static final Object[] EMPTY_ELEMENTDATA = {};
+
+    /**
+     * 当调用无参构造方法，返回的是该数组。刚创建一个ArrayList 时，其内数据量为0。
+     * 它与EMPTY_ELEMENTDATA的区别就是：该数组是默认返回的，而后者是在用户指定容量为0时返回。
+     */
+    private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
+
+    /**
+     * 保存添加到ArrayList中的元素。
+     * ArrayList的容量就是该数组的长度。
+     * 该值为DEFAULTCAPACITY_EMPTY_ELEMENTDATA 时，当第一次添加元素进入ArrayList中时，数组将扩容值DEFAULT_CAPACITY。
+     * 被标记为transient，在对象被序列化的时候不会被序列化。
+     */
+    transient Object[] elementData; // non-private to simplify nested class access
+
+    /**
+     * ArrayList的实际大小（数组包含的元素个数）。
+     * @serial
+     */
+    private int size;
+    /**
+     * 分派给arrays的最大容量
+     * 为什么要减去8呢？
+     * 因为某些VM会在数组中保留一些头字，尝试分配这个最大存储容量，可能会导致array容量大于VM的limit，最终导致OutOfMemoryError。
+     */
+    private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;
+```
+
+## 方法说明
+
+**扩容**
+
+1. 进行空间检查，决定是否进行扩容，以及确定最少需要的容量
+2. 如果确定扩容，就执行grow(int minCapacity)，minCapacity为最少需要的容量
+3. 第一次扩容，逻辑为newCapacity = oldCapacity + (oldCapacity >> 1);即在原有的容量基础上增加一半。
+4. 第一次扩容后，如果容量还是小于minCapacity，就将容量扩充为minCapacity。
+5. 对扩容后的容量进行判断，如果大于允许的最大容量MAX_ARRAY_SIZE，则将容量再次调整为MAX_ARRAY_SIZE。至此扩容操作结束。
 
 ## ArrayList小结
 （1）ArrayList内部使用数组存储元素，当数组长度不够时进行扩容，每次加一半的空间，ArrayList不会进行缩容；
@@ -53,6 +101,7 @@ ArrayList()创建时的默认容量。 （2）EMPTY_ELEMENTDATA
 
 （9）ArrayList支持求单向差集，调用removeAll(Collection<? extends E>
 c)方法即可；
+
 
 >elementData定义为transient的优势，自己根据size序列化真实的元素，而不是根据数组的长度序列化元素，减少了空间占用。
 
@@ -79,6 +128,18 @@ private static class Node<E> {
 >从源码上来看就是一个典型的双端队列的实现,和ArrayList一样,LinkedList=使用的一样的是快速失败的策略
 
 
+## 属性
+
+```
+// 元素个数
+transient int size = 0;
+// 链表首节点
+transient Node<E> first;
+// 链表尾节点
+transient Node<E> last;
+```
+
+## 常见方法
 在双向队列中使用指定索引位置进行插入的时候,因为是双向队列,通过判断index的位置是在前半段还是后半段来使用对应的尾插和头插
 
 - 增加节点的方式
@@ -112,6 +173,8 @@ private static class Node<E> {
 当一个链表的元素个数达到一定的数量（且数组的长度达到一定的长度）后，则把链表转化为红黑树，从而提高效率。
 数组的查询效率为O(1)，链表的查询效率是O(k)，红黑树的查询效率是O(log k)，k为桶中的元素个数，所以当元素数量非常多的时候，转化为红黑树能极大地提高效率。
 
+## 属性
+
 - **Node内部类**
 Node是一个典型的单链表节点，其中，hash用来存储key计算得来的hash值。
 
@@ -144,22 +207,46 @@ TreeNode是一个典型的树型节点，其中，prev是链表中的节点，�
 	    }
 	}
 	
-	
+
+## 方法
+**put()方法示意图**
+![Q0Z9wq.png](https://s2.ax1x.com/2019/12/09/Q0Z9wq.png)
+
+**HashMap的resize**
+- 为什么要进行扩容
+当HashMap中的元素在越来越多的时候,碰撞的几率也就会越来越高（因为数组的长度是固定的），所以为了提高查询的效率，就要对hashmap的数组进行扩容，数组扩容这个操作也会出现在ArrayList中，所以这是一个通用的操作，很多人对它的性能表示过怀疑，不过想想我们的“均摊”原理，就释然了，而在hashmap数组扩容之后，最消耗性能的点就出现了：原数组中的数据必须重新计算其在新数组中的位置，并放进去，这就是resize。 
+
+- 何时进行扩容
+当hashMap中的元素超过数组大小(**capacity**) *  loadFactor(**threshold = capacity * loadFactor**)时，就会进行数组扩容，loadFactor的默认值为0.75，也就是说，默认情况下，数组大小为16，那么当hashmap中元素个数超过16*0.75=12的时候，就把数组的大小扩展为2*16=32，即扩大一倍，然后重新计算每个元素在数组中的位置，而这是一个非常消耗性能的操作，所以如果我们已经预知hashmap中元素的个数，那么预设元素的个数能够有效的提高hashmap的性能。比如说，我们有1000个元素new HashMap(1000), 但是理论上来讲new HashMap(1024)更合适，即使是1000，hashmap也自动会将其设置为1024。 但是new HashMap(1024)还不是更合适的，因为0.75*1000 < 1000, 也就是说为了让0.75 * size > 1000, 我们必须这样new HashMap(2048)才最合适，既考虑了&的问题，也避免了resize的问题。
 	
 
-**总结**
+
+## 总结
+
+- [关于HashMap在JDK1.7 和 1.8的区别](https://blog.csdn.net/qq_36520235/article/details/82417949) 
+
+ ![Q0VHTP.png](https://s2.ax1x.com/2019/12/09/Q0VHTP.png)
+
+- [关于reHash出现死循环](https://www.jianshu.com/p/1e9cf0ac07f4) 
 
 （1）HashMap是一种散列表，采用（数组 + 链表 + 红黑树）的存储结构；
 
 （2）HashMap的默认初始容量为16（1<<4），默认装载因子为0.75f，容量总是2的n次方；
 
+>这里提一下为什么要求是2的n次方,在进行Hash运算的时候
+算key得hashcode值，然后跟数组的长度-1做一次“与”运算（&）。
+
+>当HashMap使用put方法的时候需要寻找桶的位置`(n - 1) & hash`--n代表数组的长度,当数组为2^n^时,出现哈希冲突的概率更小
+
+
 （3）HashMap扩容时每次容量变为原来的两倍；
 
-（4）当桶的数量小于64时不会进行树化，只会扩容；
+（4）**当桶的数量小于64时不会进行树化，只会扩容；**
 
-（5）当桶的数量大于64且单个桶中元素的数量大于8时，进行树化；
+（5）**当桶的数量大于64且单个桶中元素的数量大于8时，进行树化；**
 
-（6）当单个桶中元素数量小于6时，进行反树化；
+（6）**当单个桶中元素数量小于6时，进行反树化；**
+>树化是针对于单桶而言
 
 （7）HashMap是非线程安全的容器；
 
