@@ -26,9 +26,9 @@
 package java.util;
 
 /**
- * This class provides a skeletal implementation of the {@link List}
+ * This class provides a skeletal(骨骼的?) implementation of the {@link List}
  * interface to minimize the effort required to implement this interface
- * backed by a "random access" data store (such as an array).  For sequential
+ * backed by a "random access" data store (such as an array).  For sequential(顺序的)
  * access data (such as a linked list), {@link AbstractSequentialList} should
  * be used in preference to this class.
  *
@@ -584,7 +584,7 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
      * iterator) will throw a {@code ConcurrentModificationException} in
      * response to the {@code next}, {@code remove}, {@code previous},
      * {@code set} or {@code add} operations.  This provides
-     * <i>fail-fast</i> behavior, rather than non-deterministic behavior in
+     * <i>fail-fast</i> behavior, rather than non-deterministic(确定性的) behavior in
      * the face of concurrent modification during iteration.
      *
      * <p><b>Use of this field by subclasses is optional.</b> If a subclass
@@ -597,6 +597,9 @@ public abstract class AbstractList<E> extends AbstractCollection<E> implements L
      * bogus {@code ConcurrentModificationExceptions}.  If an implementation
      * does not wish to provide fail-fast iterators, this field may be
      * ignored.
+     */
+    /**
+     * 用于记录修改的次数
      */
     protected transient int modCount = 0;
 

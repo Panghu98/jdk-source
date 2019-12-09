@@ -65,6 +65,13 @@ import java.util.Map.Entry;
  * @since 1.2
  */
 
+/**
+ *  内部
+ *    transient Set<K>        keySet;
+ *     transient Collection<V> values;
+ * @param <K>
+ * @param <V>
+ */
 public abstract class AbstractMap<K,V> implements Map<K,V> {
     /**
      * Sole constructor.  (For invocation by subclass constructors, typically
@@ -343,6 +350,7 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
      * is performed, so there is a slight chance that multiple calls to this
      * method will not all return the same set.
      */
+
     public Set<K> keySet() {
         Set<K> ks = keySet;
         if (ks == null) {
@@ -445,6 +453,10 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
         return vals;
     }
 
+    /**
+     *  返回一个集合
+     * @return
+     */
     public abstract Set<Entry<K,V>> entrySet();
 
 
@@ -733,6 +745,11 @@ public abstract class AbstractMap<K,V> implements Map<K,V> {
      * key-value mappings.
      *
      * @since 1.6
+     */
+    /**
+     * 简单不可变 字典
+     * @param <K>
+     * @param <V>
      */
     public static class SimpleImmutableEntry<K,V>
         implements Entry<K,V>, java.io.Serializable

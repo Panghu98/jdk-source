@@ -80,6 +80,12 @@ import java.util.function.Consumer;
  * @param <E> the type of elements held in this collection
  */
 
+/**
+ * LinkedList是一个双端队列
+ *
+ * 支持队列,栈以及有序队列
+ * @param <E>
+ */
 public class LinkedList<E>
     extends AbstractSequentialList<E>
     implements List<E>, Deque<E>, Cloneable, java.io.Serializable
@@ -566,6 +572,9 @@ public class LinkedList<E>
     Node<E> node(int index) {
         // assert isElementIndex(index);
 
+        /**
+         * 双向队列.判断是在前面部分还是在后面部分
+         */
         if (index < (size >> 1)) {
             Node<E> x = first;
             for (int i = 0; i < index; i++)

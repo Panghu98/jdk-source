@@ -167,6 +167,8 @@ public class ThreadLocal<T> {
                 return result;
             }
         }
+        //map!=null
+        //如果没有 就设置返回初始值
         return setInitialValue();
     }
 
@@ -476,6 +478,10 @@ public class ThreadLocal<T> {
                     e.value = value;
                     return;
                 }
+
+                //如果key的值为null,再次使用set方法的时候就会讲(null,value)替换掉
+
+                //for循环是遍历整个Entry数组，碰到了内存泄漏后会将原来的Entry替换掉避免内存泄漏。
 
                 if (k == null) {
                     replaceStaleEntry(key, value, i);
