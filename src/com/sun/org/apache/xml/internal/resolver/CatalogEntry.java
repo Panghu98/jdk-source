@@ -22,7 +22,6 @@ package com.sun.org.apache.xml.internal.resolver;
 
 import java.util.Map;
 import java.util.Vector;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**

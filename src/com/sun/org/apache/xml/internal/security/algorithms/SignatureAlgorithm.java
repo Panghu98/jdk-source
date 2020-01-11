@@ -26,7 +26,6 @@ import java.security.Key;
 import java.security.SecureRandom;
 import java.security.spec.AlgorithmParameterSpec;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 import com.sun.org.apache.xml.internal.security.algorithms.implementations.IntegrityHmac;
 import com.sun.org.apache.xml.internal.security.algorithms.implementations.SignatureBaseRSA;

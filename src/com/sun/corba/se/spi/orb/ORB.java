@@ -28,7 +28,6 @@ package com.sun.corba.se.spi.orb;
 import java.util.Map ;
 import java.util.HashMap ;
 import java.util.Properties ;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger ;
 
 import java.security.AccessController ;

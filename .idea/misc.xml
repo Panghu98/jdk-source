@@ -6,11 +6,7 @@
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
-  <component name="ProjectPlainTextFileTypeManager">
-    <file url="file://$PROJECT_DIR$/src/java/lang/Integer.java" />
-    <file url="file:///usr/local/java/jdk1.8.0_211/src.zip!/java/lang/Integer.java" />
-  </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8.0_171" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/output" />
   </component>
 </project>

@@ -87,7 +87,6 @@ import com.sun.corba.se.spi.transport.CorbaContactInfoListIterator ;
 import com.sun.corba.se.spi.transport.CorbaConnection;
 import com.sun.corba.se.spi.logging.CORBALogDomains;
 
-import com.sun.corba.se.spi.servicecontext.MaxStreamFormatVersionServiceContext;
 import com.sun.corba.se.spi.servicecontext.ServiceContext;
 import com.sun.corba.se.spi.servicecontext.ServiceContexts;
 import com.sun.corba.se.spi.servicecontext.UEInfoServiceContext;
@@ -114,7 +113,7 @@ import com.sun.corba.se.impl.transport.CorbaContactInfoListIteratorImpl;
 import com.sun.corba.se.impl.util.JDKBridge;
 
 import java.util.concurrent.ConcurrentMap;
-import java.util.concurrent.ConcurrentHashMap;
+
 import sun.corba.EncapsInputStreamFactory;
 
 /**
