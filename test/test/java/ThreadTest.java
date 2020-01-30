@@ -2,33 +2,71 @@ package test.java;
 
 public class ThreadTest {
 
-    private synchronized void threadPrint() {
+    static {
+        Thread thread = Thread.currentThread();
+        System.err.println(thread.getName() + "正在执行静态代码块打印方法");
+        try {
+            Thread.sleep(1000*2);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static synchronized void staticSyncPrint() {
 
         Thread thread = Thread.currentThread();
-        System.err.println(thread.getName() + "正在执行print方法");
+        System.err.println(thread.getName() + "正在执行静态同步打印方法");
         try {
-            Thread.sleep(1000*5);
+            Thread.sleep(1000*2);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
     }
 
+    private synchronized void syncPrint() {
+        Thread thread = Thread.currentThread();
+        System.err.println(thread.getName() + "正在执行同步打印方法");
+        try {
+            Thread.sleep(1000*20);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void notSyncPrint() {
+        Thread thread = Thread.currentThread();
+        System.err.println(thread.getName() + "正在执行非同步打印方法");
+        try {
+            Thread.sleep(1000*20);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
 
     public static void main(String[] args) {
+
+
         ThreadTest test = new ThreadTest();
         ThreadTest test2 = new ThreadTest();
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                test.threadPrint();
+                staticSyncPrint();
+                test.syncPrint();
             }
         };
 
         Runnable runnable2 = new Runnable() {
             @Override
             public void run() {
-                test2.threadPrint();
+                staticSyncPrint();
+                test2.notSyncPrint();
             }
         };
 
