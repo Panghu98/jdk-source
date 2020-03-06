@@ -641,14 +641,13 @@ public class HashMap<K,V> extends AbstractMap<K,V>
         Node<K, V> p;
         int n, i;
         // 如果桶的数量为0，则初始化
-        tab = table
-        if ((table) == null || (n = tab.length) == 0)
+        if ((tab = table) == null || (n = tab.length) == 0)
             // 调用resize()初始化
             n = (tab = resize()).length;
         // (n - 1) & hash 计算元素在哪个桶中
         // 如果这个桶中还没有元素，则把这个元素放在桶中的第一个位置
-        p = tab[i = (n - 1) ]
-        if ((p & hash) == null)
+        // 并在if判断中初始化p
+        if ((p = tab[i = (n - 1) & hash]) == null)
             // 新建一个节点放在桶中
             tab[i] = newNode(hash, key, value, null);
         else {
@@ -656,7 +655,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
             Node<K, V> e;
             K k;
             // 如果桶中第一个元素的key与待插入元素的key相同，保存到e中用于后续修改value值
-            //Hash可能存在Hash冲突,所以还要判断 ((k = p.key) == key || (key != null && key.equals(k)
+            //p何时初始化的？
             if (p.hash == hash &&
                     ((k = p.key) == key || (key != null && key.equals(k))))
                 e = p;
@@ -666,7 +665,6 @@ public class HashMap<K,V> extends AbstractMap<K,V>
             else {
                 // 遍历这个桶对应的链表，binCount用于存储链表中元素的个数
                 for (int binCount = 0; ; ++binCount) {
-                    //使用的是尾插法
                     // 如果链表遍历完了都没有找到相同key的元素，说明该key对应的元素不存在，则在链表最后插入一个新节点
                     if ((e = p.next) == null) {
                         p.next = newNode(hash, key, value, null);
@@ -735,12 +733,16 @@ public class HashMap<K,V> extends AbstractMap<K,V>
             } else if ((newCap = oldCap << 1) < MAXIMUM_CAPACITY &&
                     oldCap >= DEFAULT_INITIAL_CAPACITY)
                 // 如果旧容量的两倍小于最大容量并且旧容量大于默认初始容量（16），则容量扩大为两部，扩容门槛也扩大为两倍
+            {
                 newThr = oldThr << 1; // double threshold
+            }
            // oldCap == 0 && oldThr > 0
         } else if (oldThr > 0) // initial capacity was placed in threshold
                 // 使用非默认构造方法创建的map，第一次插入元素会走到这里
                 // 如果旧容量为0且旧扩容门槛大于0，则把新容量赋值为旧门槛
+            {
                 newCap = oldThr;
+            }
         //oldCap == 0 && oldThr ==  0
         else {               // zero initial threshold signifies using defaults
             // 调用默认构造方法创建的map，第一次插入元素会走到这里
@@ -2054,38 +2056,59 @@ public class HashMap<K,V> extends AbstractMap<K,V>
         /**
          * Tree version of putVal.
          */
-        final TreeNode<K,V> putTreeVal(HashMap<K,V> map, Node<K,V>[] tab,
-                                       int h, K k, V v) {
+        final TreeNode<K, V> putTreeVal(HashMap<K, V> map, Node<K, V>[] tab,
+                                        int h, K k, V v) {
             Class<?> kc = null;
+            // 标记是否找到这个key的节点
             boolean searched = false;
-            TreeNode<K,V> root = (parent != null) ? root() : this;
-            for (TreeNode<K,V> p = root;;) {
-                int dir, ph; K pk;
-                if ((ph = p.hash) > h)
+            // 找到树的根节点
+            TreeNode<K, V> root = (parent != null) ? root() : this;
+            // 从树的根节点开始遍历
+            for (TreeNode<K, V> p = root; ; ) {
+                // dir=direction，标记是在左边还是右边
+                // ph=p.hash，当前节点的hash值
+                int dir, ph;
+                // pk=p.key，当前节点的key值
+                K pk;
+                if ((ph = p.hash) > h) {
+                    // 当前hash比目标hash（待插入的节点Hash值）大，说明在左边
                     dir = -1;
+                }
                 else if (ph < h)
+                    // 当前hash比目标hash小，说明在右边
                     dir = 1;
                 else if ((pk = p.key) == k || (k != null && k.equals(pk)))
+                    // 两者hash相同且key相等，说明找到了节点，直接返回该节点
+                    // 回到putVal()中判断是否需要修改其value值
                     return p;
                 else if ((kc == null &&
-                          (kc = comparableClassFor(k)) == null) ||
-                         (dir = compareComparables(kc, k, pk)) == 0) {
+                        // 如果k是Comparable的子类则返回其真实的类，否则返回null
+                        (kc = comparableClassFor(k)) == null) ||
+                        // 如果k和pk不是同样的类型则返回0，否则返回两者比较的结果
+                        (dir = compareComparables(kc, k, pk)) == 0) {
+                    // 这个条件表示两者hash相同但是其中一个不是Comparable类型或者两者类型不同
+                    // 比如key是Object类型，这时可以传String也可以传Integer，两者hash值可能相同
+                    // 在红黑树中把同样hash值的元素存储在同一颗子树，这里相当于找到了这颗子树的顶点
+                    // 从这个顶点分别遍历其左右子树去寻找有没有跟待插入的key相同的元素
                     if (!searched) {
-                        TreeNode<K,V> q, ch;
+                        TreeNode<K, V> q, ch;
                         searched = true;
+                        // 遍历左右子树找到了直接返回
                         if (((ch = p.left) != null &&
-                             (q = ch.find(h, k, kc)) != null) ||
-                            ((ch = p.right) != null &&
-                             (q = ch.find(h, k, kc)) != null))
+                                (q = ch.find(h, k, kc)) != null) ||
+                                ((ch = p.right) != null &&
+                                        (q = ch.find(h, k, kc)) != null))
                             return q;
                     }
+                    // 如果两者类型相同，再根据它们的内存地址计算hash值进行比较
                     dir = tieBreakOrder(k, pk);
                 }
 
-                TreeNode<K,V> xp = p;
+                TreeNode<K, V> xp = p;
                 if ((p = (dir <= 0) ? p.left : p.right) == null) {
-                    Node<K,V> xpn = xp.next;
-                    TreeNode<K,V> x = map.newTreeNode(h, k, v, xpn);
+                    // 如果最后确实没找到对应key的元素，则新建一个节点
+                    Node<K, V> xpn = xp.next;
+                    TreeNode<K, V> x = map.newTreeNode(h, k, v, xpn);
                     if (dir <= 0)
                         xp.left = x;
                     else
@@ -2093,7 +2116,9 @@ public class HashMap<K,V> extends AbstractMap<K,V>
                     xp.next = x;
                     x.parent = x.prev = xp;
                     if (xpn != null)
-                        ((TreeNode<K,V>)xpn).prev = x;
+                        ((TreeNode<K, V>) xpn).prev = x;
+                    // 插入树节点后平衡
+                    // 把root节点移动到链表的第一个节点
                     moveRootToFront(tab, balanceInsertion(root, x));
                     return null;
                 }
