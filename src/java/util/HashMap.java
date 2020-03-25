@@ -665,7 +665,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
             else {
                 // 遍历这个桶对应的链表，binCount用于存储链表中元素的个数
                 for (int binCount = 0; ; ++binCount) {
-                    // 如果链表遍历完了都没有找到相同key的元素，说明该key对应的元素不存在，则在链表最后插入一个新节点
+                    // 如    果链表遍历完了都没有找到相同key的元素，说明该key对应的元素不存在，则在链表最后插入一个新节点
                     if ((e = p.next) == null) {
                         p.next = newNode(hash, key, value, null);
                         // 如果插入新节点后链表长度大于8，则判断是否需要树化，因为第一个元素没有加到binCount中，所以这里-1

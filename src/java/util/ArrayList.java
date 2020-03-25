@@ -214,19 +214,8 @@ public class ArrayList<E> extends AbstractList<E>
 
 
     private static int calculateCapacity(Object[] elementData, int minCapacity) {
-        if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATApublic void ensureCapacity(int minCapacity) {
-            // 当数组部位空的时候,默认最凶啊扩容值为10
-            int minExpand = (elementData != DEFAULTCAPACITY_EMPTY_ELEMENTDATA)
-                    // any size if not default element table
-                    ? 0
-                    // larger than default for default empty table. It's already
-                    // supposed to be at default size.
-                    : DEFAULT_CAPACITY;
-
-            if (minCapacity > minExpand) {
-                ensureExplicitCapacity(minCapacity);
-            }
-        }) {
+        // 如果是空数组DEFAULTCAPACITY_EMPTY_ELEMENTDATA，就初始化为默认大小10
+        if (elementData == DEFAULTCAPACITY_EMPTY_ELEMENTDATA) {
             return Math.max(DEFAULT_CAPACITY, minCapacity);
         }
         return minCapacity;
@@ -246,6 +235,7 @@ public class ArrayList<E> extends AbstractList<E>
         modCount++;
 
         // overflow-conscious code
+        //如果最小需求容量大于数组长度的话进行扩容
         if (minCapacity - elementData.length > 0)
             grow(minCapacity);
     }
@@ -273,6 +263,8 @@ public class ArrayList<E> extends AbstractList<E>
         int oldCapacity = elementData.length;
         //新的容量为原来的1.5倍
         int newCapacity = oldCapacity + (oldCapacity >> 1);
+
+
         if (newCapacity - minCapacity < 0)
             newCapacity = minCapacity;
         if (newCapacity - MAX_ARRAY_SIZE > 0)
