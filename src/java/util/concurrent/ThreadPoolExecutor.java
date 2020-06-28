@@ -1198,7 +1198,7 @@ public class ThreadPoolExecutor extends AbstractExecutorService {
      * Main worker run loop.  Repeatedly gets tasks from queue and
      * executes them, while coping with a number of issues:
      *
-     * 1. We may start out with an initial task, in which case we
+     * 1. We may start  out with an initial task, in which case we
      * don't need to get the first one. Otherwise, as long as pool is
      * running, we get tasks from {@link getTask()}. If it returns null then the
      * worker exits due to changed pool state or configuration
